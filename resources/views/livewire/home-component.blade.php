@@ -586,7 +586,7 @@
             <h3 id="our_files" class="h3 py-4 text-center white-text wow animated fadeInDown about" data-wow-delay="0.2s">Наши файлы</h3>
             <div class="row  pb-4">
                 <div class="col-md-6 wow animated fadeInLeft" data-wow-delay="0.2s">
-                    <img class="img-fluid" src="img/files.jpg">
+                    <img class="img-fluid" src="img/br-files.jpg">
                 </div>
                 <div class="col-md-6 white-text justify-content-lg-center align-content-center wow animated fadeInRight" data-wow-delay="0.2s">
 
