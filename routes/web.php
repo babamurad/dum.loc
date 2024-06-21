@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Livewire\HomeComponent::class)->name('home');
+Route::get('single-news', \App\Livewire\SingleNewsComponent::class)->name('single.news');
+
+Route::get('admin/dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

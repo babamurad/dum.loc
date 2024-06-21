@@ -14,7 +14,7 @@
 
     <!-- MDB icon -->
 
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,15 +27,15 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <!-- Material Design Bootstrap -->
 
-    <link rel="stylesheet" href="css/mdb.min.css">
+    <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
 
     <!-- Your custom styles (optional) -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <style>
         @media (min-width: 800px) and (max-width: 850px) {
@@ -95,19 +95,19 @@
 
 <body>
 
-<section class="h100" id="home">
-
+<section class="h100" id="home"  style="background-image: url({{ asset('img/small_0.jpg') }}); background-repeat: no-repeat; background-size: cover;">
+<div class="rgba-black-strong">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <img src="img/Logo20.png" alt="logo" class="w-59">
+                <img src="{{ asset('img/Logo20.png') }}" alt="logo" class="w-59">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav ml-auto smooth-scroll">
+                <ul class="navbar-nav ml-auto smooth-scroll ">
                     <li class="nav-item text-nowrap">
                         <a class="nav-link" href="#sectionAbout" data-offset="100">О компании</a>
                     </li>
@@ -115,7 +115,16 @@
                         <a class="nav-link" href="#mission" data-offset="100">Миссия и ценности</a>
                     </li>
                     <li class="nav-item text-nowrap">
-                        <a class="nav-link" href="#our_files" data-offset="100">Наши файлы</a>
+                        <a class="nav-link" href="#our_files" data-offset="100">Файлы</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link" href="#partners" data-offset="100">Партнеры</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link" href="#awards" data-offset="100">Награды</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link" href="#faq" data-offset="100">FAQ</a>
                     </li>
                     <li class="nav-item text-nowrap">
                         <a class="nav-link" href="#rascet" data-offset="100">Расчет ставок</a>
@@ -131,318 +140,133 @@
 
     <!-- Navbar -->
 
+    <!--Section Zayawka-->
+    <section class="h100 pt-3">
+        <div class="container">
+            <h2 class="about white-text text-center text-uppercase mb-0 pt-3 wow fadeInUp" data-wow-delay="0.2s">Расчет
+                ставок </h2>
+            <div class="row mt-5">
+                <div class="col-md-4 white-text text-center align-content-center wow animated fadeInLeft">
+                    <div class="align-content-center mt-5">
 
 
-    <!--Carousel Wrapper-->
-
-    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-        <h2 class="text-center vezet">« Везём МЫ- везёт ВАМ! »</h2>
-
-        <!--Indicators-->
-
-        <ol class="carousel-indicators">
-
-            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-
-            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-
-            <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-
-            <li data-target="#carousel-example-1z" data-slide-to="3"></li>
-
-        </ol>
-
-        <!--/.Indicators-->
-
-        <!--Slides-->
-
-        <div class="carousel-inner" role="listbox">
-            <!--First slide-->
-            <div class="carousel-item active">
-
-                <div class="view"
-                     style="background-image: url('img/slide1-11.jpg'); background-repeat: no-repeat; background-size: cover;">
-                    <!-- Mask & flexbox options-->
-                    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-                        <div class="container p-0">
-                            <div class="col-md-6">
-                                <!-- Content -->
-
-                                <div class="text-left white-text wow fadeIn tx-centr">
-
-                                    <h1 class="mb-4 text-uppercase">
-
-                                        <strong>Железнодорожные</strong>
-
-                                    </h1>
-
-                                    <p>
-
-                                        <strong class="perew text-uppercase">Перевозки</strong>
-
-                                    </p>
-
-                                    <p class="mb-4 d-none d-md-block">
-
-                                        <strong>Отличаются исключительной надежностью и вместимостью, безопасностью.
-                                            Предлагаем выгодное решение цепи поставок, что снизит стоимость перевозки и сократит сроки поставки
-                                            груза в конечный пункт назначения.
-                                        </strong>
-
-                                    </p>
-
-                                    <a href="cart.html#kartocka" class="btn btn-danger btn-rounded btn-lg">ЧИТАТЬ ДАЛЕЕ
-
-                                        <i class="fas fa-subway ml-2"></i>
-
-                                    </a>
-
-                                </div>
-                                <!-- Content -->
-
-
-
-                            </div>
-                            <div class="col-md-6">
-
-
-                            </div>
-
-                        </div>
+                        <img src="{{ asset('img/pexels-frans-van-heerden-1624695.jpg') }}" class="img-fluid">
                     </div>
-                    <!-- Mask & flexbox options-->
                 </div>
-            </div>
-            <!--/First slide-->
-
-            <!--Second slide-->
-            <div class="carousel-item">
-
-                <div class="view"
-                     style="background-image: url('img/slide4-1.jpg'); background-repeat: no-repeat; background-size: cover;">
-                    <!-- Mask & flexbox options-->
-
-                    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-                        <div class="container p-0">
-                            <div class="col-md-6">
-                                <!-- Content -->
-
-                                <div class="text-left white-text  wow fadeIn tx-centr">
-
-                                    <h1 class="mb-4 text-uppercase">
-
-                                        <strong>Морские</strong>
-
-                                    </h1>
-
-                                    <p>
-
-                                        <strong class="perew text-uppercase">Перевозки</strong>
-
-                                    </p>
-
-                                    <p class="mb-4 d-none d-md-block">
-
-                                        <strong>Востребованы благодаря низкой себестоимости, большой грузоподъёмности морских судов и
-                                            минимальным ограничениям на пропускную способность, выгодно в случае транспортировки грузов на большие
-                                            расстояния.</strong>
-
-                                    </p>
-
-                                    <a href="cart.html#kartocka" class="btn btn-danger btn-rounded btn-lg">ЧИТАТЬ ДАЛЕЕ
-
-                                        <i class="fas fa-ship ml-2"></i>
-
-                                    </a>
-
-                                </div>
-                                <!-- Content -->
-
+                <div class="col-md-5 white-text text-center wow animated fadeInUp">
+                    <form class="fields" action="" id="Rasform" method="POST">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset class="form-group">
+                                    <div class="col-ms-12">
+                                        <label for="name_of_comp">Наименование компании</label>
+                                        <input type="text" class="form-control" id="name_of_comp" name="name_of_comp"
+                                               placeholder="ООО Победа" required>
+                                    </div>
+                                </fieldset>
                             </div>
-
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
-
-
-
+                                <fieldset class="form-group">
+                                    <label for="email">Ваш email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                           placeholder="email@example.com">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="railcar_owner">Принадлежность вагона</label>
+                                    <input type="text" class="form-control" id="railcar_owner" name="railcar_owner"
+                                           placeholder="СПС/МПС">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="depart_station">Станция отправления</label>
+                                    <input type="text" class="form-control" id="depart_station" name="depart_station"
+                                           placeholder="Костанай станция">
+                                </fieldset>
                             </div>
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="first_name">Ваше имя</label>
+                                    <input type="text" class="form-control" id="first_name" placeholder="Иванов Иван">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="railcar_type">Тип вагона</label>
+                                    <select type="text" class="form-control" id="railcar_type" name="railcar_type">
+                                        <option value="" selected disabled>Выберите из списка</option>
+                                        <option value="covered">Крытый</option>
+                                        <option value="gondola">Полувагон</option>
+                                        <option value="gondola">Цистерны</option>
+                                        <option value="gondola">Контейнер</option>
+                                    </select>
+                                    <!-- цистерны <input type="text" class="form-control" id="railcar_type" name="railcar_type">-->
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="destin_station">Станция назначения</label>
+                                    <input type="text" class="form-control" id="destin_station" name="destin_station"
+                                           placeholder="Серхетабат эксп">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <fieldset class="form-group">
+                                    <label for="ter_exp">Территория экспедирования</label>
+                                    <input type="text" class="form-control" id="ter_exp" name="ter_exp"
+                                           placeholder="Казахстан, Туркменистан">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <fieldset class="form-group">
+                                    <label for="cargo_name">Наименование груза</label>
+                                    <input type="text" class="form-control" id="cargo_name" name="cargo_name"
+                                           placeholder="Пшеница">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="cargo_code">Код груза</label>
+                                    <input type="text" class="form-control" id="cargo_code" name="cargo_code"
+                                           placeholder="ГНГ10019000 / ЕТСНГ011005">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="cargo">Вес (тн)</label>
+                                    <input type="text" class="form-control" id="cargo_weight" name="cargo_weight"
+                                           placeholder="70 тн">
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <button id="zayawka" type="submit" class="btn btn-danger btn-rounded">Отправить</button>
+                    </form>
+                    <div class="notes mt-5 pt-5"></div>
+                </div>
+                <div class="col-md-3 white-text text-center wow animated fadeInRight">
+                    <div class="md-timeline-item mt-5">
+                        <div class="md-timeline-circle md-timeline-circle-success"></div>
+                        <div class="md-timeline-media">
+                            <img src="{{ asset('img/placeholder-200.png') }}" alt="Timeline Item Image">
+                        </div>
+                        <div class="md-timeline-content">
+                            <h3>Timeline Item Title</h3>
+                            <p>Timeline Item Description</p>
                         </div>
                     </div>
 
-                    <!-- Mask & flexbox options-->
                 </div>
-
             </div>
-
-            <!--/Second slide -->
-
-            <!--Third slide-->
-
-            <div class="carousel-item">
-
-                <div class="view"
-                     style="background-image: url('img/slide3-1.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-                    <!-- Mask & flexbox options-->
-
-                    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-                        <div class="container p-0">
-                            <div class="col-md-6">
-
-                                <!-- Content -->
-
-                                <div class="text-left  white-text  wow fadeIn tx-centr">
-
-                                    <h1 class="mb-4 text-uppercase">
-
-                                        <strong>Воздушные</strong>
-
-                                    </h1>
-
-                                    <p>
-
-                                        <strong class="perew text-uppercase">Перевозки</strong>
-
-                                    </p>
-
-                                    <p class="mb-4 d-none d-md-block">
-
-                                        <strong>Наши риски основаны на приверженности, преданности делу и профессионализме.
-
-                                            Наша профессиональная команда придерживается всех стандартов качества и совершенства.
-
-                                        </strong>
-
-                                    </p>
-
-                                    <a href="cart.html#kartocka" class="btn btn-danger btn-rounded btn-lg">ЧИТАТЬ ДАЛЕЕ
-
-                                        <i class="fas fa-plane ml-2"></i>
-
-                                    </a>
-
-                                </div>
-
-                                <!-- Content -->
-
-
-                            </div>
-
-                            <div class="col-md-6">
-
-
-
-                            </div>
-
-                        </div>
-
-
-
-                    </div>
-
-                    <!-- Mask & flexbox options-->
-
-
-
-                </div>
-
-            </div>
-            <!--/Third slide -->
-            <!--Forth slide-->
-
-            <div class="carousel-item">
-
-                <div class="view"
-                     style="background-image: url('img/slide2-1.jpg'); background-repeat: no-repeat; background-size: cover;">
-                    <!-- Mask & flexbox options-->
-
-                    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-                        <div class="container p-0">
-                            <div class="col-md-6">
-
-
-
-                                <!-- Content -->
-
-                                <div class="text-left white-text  wow fadeIn tx-centr">
-
-                                    <h1 class="mb-4 text-uppercase">
-
-                                        <strong>Автомобильные</strong>
-
-                                    </h1>
-
-                                    <p>
-
-                                        <strong class="perew text-uppercase">Перевозки</strong>
-
-                                    </p>
-
-                                    <p class="mb-4 d-none d-md-block">
-
-                                        <strong>Тысячи проектов сделали нас лидером в области транспорта. Мы стоим за нашим обещанием
-
-                                            предоставлять своевременные и качественные страховые и складские услуги.
-
-
-
-                                        </strong>
-
-                                    </p>
-
-                                    <a href="cart.html#kartocka" class="btn btn-danger btn-rounded btn-lg">ЧИТАТЬ ДАЛЕЕ
-
-                                        <i class="fas fa-truck ml-2"></i>
-
-                                    </a>
-
-                                </div>
-
-                                <!-- Content -->
-
-
-                            </div>
-
-                            <div class="col-md-6">
-
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mask & flexbox options-->
-
-
-
-                </div>
-
-            </div>
-            <!--/Forth slide-->
         </div>
+    </section>
 
-        <!--/.Slides-->
-        <!--Controls-->
+    <!--/Section Zayawka-->
+</div>
 
-        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
 
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-            <span class="sr-only">Previous</span>
-
-        </a>
-
-        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
-            <span class="sr-only">Next</span>
-
-        </a>
-
-        <!--/.Controls-->
-
-    </div>
-    <!--/.Carousel Wrapper-->
 </section>
 <main>
 
@@ -556,7 +380,7 @@
 
 
 
-                <img src="img/MyahriQR-cod.jpg" alt="" class="m-0 p-0" style="max-width: 88%;">
+                <img src="{{ asset('img/qr-code.gif') }}" alt="" class="m-0 p-0" style="max-width: 88%;">
 
 
 
@@ -605,19 +429,19 @@
 
 <!-- jQuery -->
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
 <!-- Bootstrap tooltips -->
 
-<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
 
 <!-- Bootstrap core JavaScript -->
 
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 <!-- MDB core JavaScript -->
 
-<script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
 
 <!-- Your custom scripts (optional)<script type="text/javascript" src="js/jakor.js"></script> -->
 
@@ -647,7 +471,7 @@
         $('<style>' +
             '.scrollTop{ display:none; z-index:9999; position:fixed;' +
             'bottom:20px; left:87%; width:88px; height:125px;' +
-            'background:url(img/svg/icons8_double_up_1.svg) 0 0 no-repeat; }' +
+            'background:url({{ asset('img/svg/icons8_double_up_1.svg') }}) 0 0 no-repeat; }' +
             '</style>').appendTo('body');
         var
             speed = 550,
