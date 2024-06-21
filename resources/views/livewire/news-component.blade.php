@@ -1,7 +1,7 @@
 <!-- News Carousel Wrapper-->
 <div>
     <h3 class="h3 mt-3">Новости</h3>
-    <div id="newsCarousel" class="carousel slide carousel-multi-item" data-ride="carousel" style="    height: 36vh;">
+    <div id="newsCarousel" class="carousel slide carousel-multi-item" data-ride="carousel" style="    height: auto;">
         <!--Controls-->
         <a class="news-carousel-control-prev" href="#newsCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon bg-primary" aria-hidden="true"></span>

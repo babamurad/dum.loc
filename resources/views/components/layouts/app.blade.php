@@ -91,48 +91,11 @@
         <div><img src="https://mc.yandex.ru/watch/76255030" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-
 </head>
 
 <body>
-<style>
-    /* Media Queries for mobile responsiveness */
-    @media (max-width: 576px) {
-        .navbar .navbar-brand img {
-            width: 50px; /* Adjust logo size for mobile */
-        }
 
-        .navbar-nav .nav-item {
-            text-align: center;
-        }
-
-        .navbar-nav .nav-link {
-            padding: 10px 15px;
-        }
-
-        .about {
-            font-size: 1.5rem; /* Adjust heading size for mobile */
-        }
-
-        .fields .btn {
-            width: 100%; /* Full width button for mobile */
-        }
-
-        .text-left {
-            text-align: center !important;
-        }
-    }
-
-    /* Hover effect for .ourfl class */
-    .ourfl {
-        transition: all 0.2s ease-in-out;
-    }
-
-    .ourfl:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-</style>
-<section class="h100" id="home"
+<section id="home"
          style="background-image: url({{ asset('img/small_0.jpg') }}); background-repeat: no-repeat; background-size: cover;">
 <div class="rgba-black-strong">
     <!-- Navbar -->
@@ -177,7 +140,7 @@
     </nav>
     <!-- Navbar -->
 
-    <section style="height: 100vh;  display: flex; align-items: center;">
+    <section class="pt-5 rasc-form" style="display: flex; align-items: center;">
         <div class="container">
             <h2 class="about white-text text-center text-uppercase mb-3 pt-3 wow fadeInUp" data-wow-delay="0.2s">Расчет
                 ставок </h2>
@@ -204,8 +167,11 @@
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label class="text-white" for="railcar_owner">Принадлежность вагона</label>
-                                    <input type="text" class="rscet form-control" id="railcar_owner" name="railcar_owner"
-                                           placeholder="СПС/МПС">
+                                    <select type="text" class="rscet form-control" id="railcar_owner" name="railcar_owner">
+                                        <option value="" selected disabled>Выберите принадлежность вагона</option>
+                                        <option value="0">СПС</option>
+                                        <option value="0">МПС</option>
+                                    </select>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label class="text-white" for="depart_station">Станция отправления</label>
@@ -222,10 +188,10 @@
                                     <label class="text-white" for="railcar_type">Тип вагона</label>
                                     <select type="text" class="rscet form-control" id="railcar_type" name="railcar_type">
                                         <option value="" selected disabled>Выберите из списка</option>
-                                        <option value="covered">Крытый</option>
-                                        <option value="gondola">Полувагон</option>
-                                        <option value="gondola">Цистерны</option>
-                                        <option value="gondola">Контейнер</option>
+                                        <option value="0">Крытый</option>
+                                        <option value="1">Полувагон</option>
+                                        <option value="2">Цистерны</option>
+                                        <option value="3">Контейнер</option>
                                     </select>
                                     <!-- цистерны <input type="text" class="form-control" id="railcar_type" name="railcar_type">-->
                                 </fieldset>
@@ -277,8 +243,14 @@
 
                 <div class="col-sm-4 d-flex align-items-center">
                     <div class="row">
-                        <div class="col-sm-3">
-                            <img src="{{ asset('img/order/businesswoman.svg') }}" alt="">
+                        <div class="col-sm-12 mb-2">
+                            <h6 class="h5 work white-text text-center text-uppercase mb-3 pt-3 wow" data-wow-delay="0.2s">
+                                Этапы работ:
+                            </h6>
+                            <h3 class="h2 text-white text-center" ><span style="color: rgb(255,53,71);">Как мы</span>  работаем</h3>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                            <img class="w50" src="{{ asset('img/order/businesswoman.svg') }}" alt="">
                         </div>
                         <div class="col-sm-9 mb-3">
                             <div class="text-left text-white">
@@ -287,8 +259,8 @@
                                 <span style="font-size: 1rem;">Оставляете заявку</span>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <img src="{{ asset('img/order/business_building.svg') }}" alt="">
+                        <div class="col-sm-3 text-center">
+                            <img class="w50" src="{{ asset('img/order/business_building.svg') }}" alt="">
                         </div>
                         <div class="col-sm-9 mb-3">
                                 <div class="text-left text-white">
@@ -297,8 +269,8 @@
                                     <span style="font-size: 1rem;">Согласуем условия</span>
                                 </div>
                         </div>
-                        <div class="col-sm-3">
-                            <img src="{{ asset('img/order/bank_card_dollar.svg') }}" alt="">
+                        <div class="col-sm-3 text-center">
+                            <img class="w50" src="{{ asset('img/order/bank_card_dollar.svg') }}" alt="">
                         </div>
                         <div class="col-sm-9 mb-3">
                             <div class="text-left text-white">
@@ -307,8 +279,8 @@
                                 <span style="font-size: 1rem;">Вы оплачиваете перевозку</span>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <img src="{{ asset('img/order/city_railway_station.svg') }}" alt="">
+                        <div class="col-sm-3 text-center">
+                            <img class="w50" src="{{ asset('img/order/city_railway_station.svg') }}" alt="">
                         </div>
                         <div class="col-sm-9 mb-3">
                             <div class="text-left text-white">

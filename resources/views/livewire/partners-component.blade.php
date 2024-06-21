@@ -5,7 +5,7 @@
                 Наши партнеры
             </h2>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-6 col-md-4">
                     <div class="card mb-3">
                         <img src="{{ asset('img/placeholder-red.png') }}" class="card-img-top" alt="Логотип партнера 1">
@@ -48,7 +48,7 @@
                 Наши награды
             </h2>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-6 col-md-4">
                     <div class="card mb-3">
                         <img src="{{ asset('img/award.png') }}" class="card-img-top" alt="Награда 1">

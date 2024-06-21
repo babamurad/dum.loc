@@ -17,6 +17,8 @@ Route::get('/', \App\Livewire\HomeComponent::class)->name('home');
 Route::get('single-news', \App\Livewire\SingleNewsComponent::class)->name('single.news');
 
 Route::get('admin/dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
+Route::get('admin/news', \App\Livewire\Admin\AdminNewsComponent::class)->name('admin.news');
+Route::get('admin/create-news', \App\Livewire\Admin\CreateNewsComponent::class)->name('admin.create.news');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
