@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Section Zayawka-->
+<section class="h100 pt-3">
+    <div class="container">
+        <h2 class="about white-text text-center text-uppercase mb-0 pt-3 wow fadeInUp" data-wow-delay="0.2s">Расчет
+            ставок </h2>
+        <div class="row mt-5">
+            <div class="col-md-4 white-text text-center align-content-center wow animated fadeInLeft">
+                <div class="align-content-center mt-5">
+
+
+                    <img src="{{ asset('img/pexels-frans-van-heerden-1624695.jpg') }}" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-5 white-text text-center wow animated fadeInUp">
+                <form class="fields" action="" id="Rasform" method="POST">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="col-ms-12">
+                                    <label for="name_of_comp">Наименование компании</label>
+                                    <input type="text" class="rscet form-control" id="name_of_comp" name="name_of_comp"
+                                           style="
+                                                 background-color: rgba(0, 0, 0, 0.5);
+                                                  border: 1px solid #ccc;
+                                                  padding: 5px 10px;
+                                                  color: white;
+                                               "
+                                           placeholder="ООО Победа" required>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset class="form-group">
+                                <label for="email">Ваш email</label>
+                                <input type="email" class="rscet form-control" id="email" name="email"
+                                       placeholder="email@example.com">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label for="railcar_owner">Принадлежность вагона</label>
+                                <input type="text" class="rscet form-control" id="railcar_owner" name="railcar_owner"
+                                       placeholder="СПС/МПС">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label for="depart_station">Станция отправления</label>
+                                <input type="text" class="rscet form-control" id="depart_station" name="depart_station"
+                                       placeholder="Костанай станция">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset class="form-group">
+                                <label for="first_name">Ваше имя</label>
+                                <input type="text" class="rscet form-control" id="first_name" placeholder="Иванов Иван">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label for="railcar_type">Тип вагона</label>
+                                <select type="text" class="rscet form-control" id="railcar_type" name="railcar_type">
+                                    <option value="" selected disabled>Выберите из списка</option>
+                                    <option value="covered">Крытый</option>
+                                    <option value="gondola">Полувагон</option>
+                                    <option value="gondola">Цистерны</option>
+                                    <option value="gondola">Контейнер</option>
+                                </select>
+                                <!-- цистерны <input type="text" class="form-control" id="railcar_type" name="railcar_type">-->
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label for="destin_station">Станция назначения</label>
+                                <input type="text" class="rscet form-control" id="destin_station" name="destin_station"
+                                       placeholder="Серхетабат эксп">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <fieldset class="form-group">
+                                <label for="ter_exp">Территория экспедирования</label>
+                                <input type="text" class="rscet form-control" id="ter_exp" name="ter_exp"
+                                       placeholder="Казахстан, Туркменистан">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <fieldset class="form-group">
+                                <label for="cargo_name">Наименование груза</label>
+                                <input type="text" class="rscet form-control" id="cargo_name" name="cargo_name"
+                                       placeholder="Пшеница">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset class="form-group">
+                                <label for="cargo_code">Код груза</label>
+                                <input type="text" class="rscet form-control" id="cargo_code" name="cargo_code"
+                                       placeholder="ГНГ10019000 / ЕТСНГ011005">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset class="form-group">
+                                <label for="cargo">Вес (тн)</label>
+                                <input type="text" class="rscet form-control" id="cargo_weight" name="cargo_weight"
+                                       placeholder="70 тн">
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <button id="zayawka" type="submit" class="btn btn-danger btn-rounded">Отправить</button>
+                </form>
+                <div class="notes mt-5 pt-5"></div>
+            </div>
+            <div class="col-md-3 white-text text-center wow animated fadeInRight">
+                <div class="md-timeline-item">
+                    <div class="md-timeline-content">
+                        <h5 class="about white-text text-center text-uppercase mb-1 wow fadeInUp" data-wow-delay="0.2s">
+                            Этапы работ
+                        </h5>
+                        <h5 class="h6">Как мы работаем</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="{{ asset('img/order/businesswoman.svg') }}" alt="">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="callout callout-info text-left">
+                                            <h5 style="color: rgb(255,53,71);">01</h5>
+                                            <h5>Заявка</h5>
+                                            <span style="font-size: 1rem;">Оставляете заявку</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item">
+
+                            </li>
+                            <li class="nav-item">
+
+                            </li>
+                            <li class="nav-item">
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--/Section Zayawka-->
+</body>
+</html>

@@ -51,13 +51,9 @@
 
                         <!-- Content -->
                         <div class="text-center white-text mx-5 wow fadeIn">
-                            <h1 class="mb-4">
-                                <strong>Железнодорожные</strong>
-                            </h1>
-
-                            <p>
-                                <strong>Перевозки</strong>
-                            </p>
+                            <h2 class="h1 mb-3 text-uppercase" style="line-height: 0.5;">
+                                <strong>Железнодорожные <br>Перевозки</strong>
+                            </h2>
 
                             <p class="mb-4 d-none d-md-block">
                                 <strong>Отличаются исключительной надежностью и вместимостью, безопасностью.
@@ -89,13 +85,9 @@
 
                         <!-- Content -->
                         <div class="text-center white-text mx-5 wow fadeIn">
-                            <h1 class="mb-4">
-                                <strong>Морские</strong>
-                            </h1>
-
-                            <p>
-                                <strong>Перевозки</strong>
-                            </p>
+                            <h2 class="h1 mb-3 text-uppercase" style="line-height: 0.5;">
+                                <strong>Морские <br>Перевозки</strong>
+                            </h2>
 
                             <p class="mb-4 d-none d-md-block">
                                 <strong>Востребованы благодаря низкой себестоимости, большой грузоподъёмности морских судов и
@@ -127,13 +119,9 @@
 
                         <!-- Content -->
                         <div class="text-center white-text mx-5 wow fadeIn">
-                            <h1 class="mb-4">
-                                <strong>Воздушные</strong>
-                            </h1>
-
-                            <p>
-                                <strong>Перевозки</strong>
-                            </p>
+                            <h2 class="h1 mb-3 text-uppercase" style="line-height: 0.5;">
+                                <strong>Воздушные <br>Перевозки</strong>
+                            </h2>
 
                             <p class="mb-4 d-none d-md-block">
                                 <strong>Наши риски основаны на приверженности, преданности делу и профессионализме.
@@ -165,14 +153,9 @@
 
                         <!-- Content -->
                         <div class="text-center white-text mx-5 wow fadeIn">
-                            <h1 class="mb-4">
-                                <strong>Автомобильные</strong>
-                            </h1>
-
-                            <p>
-                                <strong>Перевозки</strong>
-                            </p>
-
+                            <h2 class="h1 mb-3 text-uppercase" style="line-height: 0.5;">
+                                <strong>Автомобильные <br>Перевозки</strong>
+                            </h2>
                             <p class="mb-4 d-none d-md-block">
                                 <strong>Тысячи проектов сделали нас лидером в области транспорта. Мы стоим за нашим обещанием
 
