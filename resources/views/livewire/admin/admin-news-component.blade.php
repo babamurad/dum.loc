@@ -4,6 +4,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     Новости
+                    @include('components.alerts')
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,7 +22,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Список новостей</h3>
-                            <button class="btn btn-sm btn-success ml-5">Добавить новость</button>
+                            <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.create.news') }}" wire:navigate>Добавить новость</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -36,83 +37,31 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><img src="" alt="image"></td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                    <td class="text-success">Опубликован</td>
-                                    <td><div>
-                                            <button type="button" class="btn btn-secondary btn-sm">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div></td>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><img src="" alt="image"></td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                    <td class="text-success">Опубликован</td>
-                                    <td><div>
-                                            <button type="button" class="btn btn-secondary btn-sm">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div></td>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><img src="" alt="image"></td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                    <td class="text-danger">Не Опубликован</td>
-                                    <td><div>
-                                            <button type="button" class="btn btn-secondary btn-sm">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div></td>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><img src="" alt="image"></td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet
-                                    </td>
-                                    <td class="text-danger">Не Опубликован</td>
-                                    <td><div>
-                                            <button type="button" class="btn btn-secondary btn-sm">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div></td>
-                                </tr>
+                                @foreach($news as $item)
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        <td>
+                                            <img class="w-25" src="{{ asset('images/news') . '/' . $item->image }}" alt="">
+                                        </td>
+                                        <td class="w-25">
+                                            {{ $item->title }}
+                                        </td>
+                                        <td class=" {{ $item->published? 'text-success': 'text-danger' }}  w-25">{{ $item->published? 'Опубликован': 'Не Опубликован' }}</td>
+                                        <td><div>
+                                                <button type="button" class="btn btn-secondary btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div></td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer clearfix">
-                            <ul class="pagination pagination-sm m-0 float-right">
-                                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">»</a></li>
-                            </ul>
-                        </div>
+                        {{ $news->links() }}
                     </div>
                 </div>
             </div>

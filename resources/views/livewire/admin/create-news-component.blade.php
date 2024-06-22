@@ -4,6 +4,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     Новости
+                    @include('components.alerts')
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,26 +27,36 @@
                         <!-- form start -->
                         <form>
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Изображение</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                                            <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        @if ($image)
+                                            <img class="w-25 rounded" src="{{ $image->temporaryUrl() }}" alt="News Image" >
+                                        @endif
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">Изображение</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" wire:model.blur="image">
+                                                    <label class="custom-file-label" for="image">Выбрать файл</label>
+                                                </div>
+                                            </div>
+                                            @error('image') <span class="error invalid-feedback" style="display: block;">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
+
                                 </div>
+
                                 <div class="form-group">
                                     <label for="news-title">Заголовок</label>
-                                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="news-title" placeholder="Заголовок">
-                                    <span id="exampleInputEmail1-error" class="error invalid-feedback">Please enter a email address</span>
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="news-title" placeholder="Заголовок" wire:model.blur="title">
+                                    @error('title') <span class="error invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Текст</label>
-                                    <textarea class="form-control" rows="6" placeholder="Текст ..."></textarea>
+                                    <textarea wire:model.blur="text" class="form-control @error('text') is-invalid @enderror" rows="6" placeholder="Текст ..."></textarea>
+                                    @error('text') <span class="error invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="published">
@@ -55,8 +66,8 @@
                             <!-- /.card-body -->
 
                                <div class="card-footer">
-                                   <button type="submit" class="btn btn-secondary mr-3">Отменить</button>
-                                   <button type="submit" class="btn btn-primary">Сохранить</button>
+                                   <a type="submit" class="btn btn-secondary mr-3" href="{{ route('admin.news') }}" wire:navigate>Отменить</a>
+                                   <button type="button" class="btn btn-primary" wire:click.prevent="save">Сохранить</button>
                                </div>
 
 
