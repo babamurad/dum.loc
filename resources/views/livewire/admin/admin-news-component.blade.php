@@ -22,7 +22,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Список новостей</h3>
-                            <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.create.news') }}" wire:navigate>Добавить новость</a>
+                            <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.news.create') }}" wire:navigate>Добавить новость</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -41,16 +41,18 @@
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>
-                                            <img class="w-25" src="{{ asset('images/news') . '/' . $item->image }}" alt="">
+                                            <img class="w-25" src="{{ asset('images/news') . '/' . $item->image }}" alt="{{ $item->title }}">
                                         </td>
                                         <td class="w-25">
                                             {{ $item->title }}
                                         </td>
-                                        <td class=" {{ $item->published? 'text-success': 'text-danger' }}  w-25">{{ $item->published? 'Опубликован': 'Не Опубликован' }}</td>
+                                        <td class="w-25">
+                                            <span class="badge p-2 {{ $item->published == true? 'bg-success': 'bg-danger' }}">{{ $item->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                        </td>
                                         <td><div>
-                                                <button type="button" class="btn btn-secondary btn-sm">
+                                                <a href="{{ route('admin.news.edit', ['id' => $item->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
                                                     <i class="fas fa-edit"></i>
-                                                </button>
+                                                </a>
                                                 <button type="button" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>

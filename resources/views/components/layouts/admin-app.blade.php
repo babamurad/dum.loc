@@ -197,7 +197,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                 </li>
                 <li class="nav-item">
-                        <a href="{{ route('admin.create.news') }}" class="nav-link {{ Request::is('admin/create-news') ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('admin.news.create') }}" class="nav-link {{ Request::is('admin/create-news') ? 'active' : '' }}" wire:navigate>
                             <i class="nav-icon fas fa-calendar-plus"></i>
                             <p>
                                 Создать новость

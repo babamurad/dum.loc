@@ -13,7 +13,7 @@ class AdminNewsComponent extends Component
 
     public function render()
     {
-        $news = News::paginate(5);
+        $news = News::orderBy('id', 'desc')->paginate(5);
         return view('livewire.admin.admin-news-component', compact('news'))->layout('components.layouts.admin-app');
     }
 }

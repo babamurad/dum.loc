@@ -37,7 +37,7 @@ class CreateNewsComponent extends Component
 
         $item = new News();
         $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('news', $imageName);
+        $this->image->storeAs('/news', $imageName);
         $item->image = $imageName;
         $item->title = $this->title;
         $item->text = $this->text;
@@ -55,10 +55,5 @@ class CreateNewsComponent extends Component
         $this->title = '';
         $this->text = '';
         $this->published = false;
-    }
-
-    public function cancel()
-    {
-        return redirect()->to('/admin/news');
     }
 }
