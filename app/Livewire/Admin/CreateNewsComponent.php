@@ -44,7 +44,7 @@ class CreateNewsComponent extends Component
         $item->published = $this->published;
         $item->save();
         $this->resetInputFields();
-        session()->flash('success', __('Новость успешно добавлена!'));
+        session()->flash('success', 'Новость успешно добавлена!');
         return redirect()->to('/admin/news');
 
     }

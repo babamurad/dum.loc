@@ -11,6 +11,27 @@ class AdminNewsComponent extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
+    public $del_id;
+    public $image;
+
+    public function deleteId($id)
+    {
+        $this->del_id = $id;
+    }
+
+    public function destroy()
+    {
+        $item = News::findOrFail($this->del_id);
+        $this->image = $item->image;
+        if (file_exists('images/news/'.$this->image)){
+            unlink('images/news/'.$this->image);
+        }
+        $item->delete();
+
+        $this->dispatch('closeNewsModal');
+        session()->flash('error', 'Новость успешно удалена!');
+    }
+
     public function render()
     {
         $news = News::orderBy('id', 'desc')->paginate(5);
