@@ -43,7 +43,7 @@
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>
-                                            <img class="w-25" src="{{ asset('images/news') . '/' . $item->image }}" alt="{{ $item->title }}">
+                                            <img class="w-25 rounded" src="{{ asset('images/news') . '/' . $item->image }}" alt="{{ $item->title }}">
                                         </td>
                                         <td class="w-25">
                                             {{ $item->title }}

@@ -45,10 +45,12 @@
                                     <tr>
                                         <td>{{ $partner->id }}</td>
                                         <td>
-                                            <img class="w-25" src="{{ asset('images/partners') . '/' . $partner->image }}" alt="{{ $partner->title }}">
+                                            <img class="w-25 rounded" src="{{ asset('images/partners') . '/' . $partner->image }}" alt="{{ $partner->title }}">
                                         </td>
                                         <td class="w-25">
+                                            <a href="{{ route('admin.partners.edit', ['id' => $partner->id]) }}" wire:navigate>
                                             {{ $partner->title }}
+                                            </a>
                                         </td>
                                         <td class="w-25">
                                             <i class="fas fa-sort"></i>
@@ -57,14 +59,16 @@
                                         <td class="w-25">
                                             <span class="badge p-2 {{ $partner->published == true? 'bg-success': 'bg-danger' }}">{{ $partner->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
                                         </td>
-                                        <td><div>
+                                        <td>
+                                            <div>
                                                 <a href="{{ route('admin.partners.edit', ['id' => $partner->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDelete" wire:click="deleteId({{ $partner->id }})">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
-                                            </div></td>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -100,7 +104,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить эту новость?</p>
+                    <p>Вы действительно хотите удалить данные партнера?</p>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
