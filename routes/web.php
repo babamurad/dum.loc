@@ -21,7 +21,9 @@ Route::get('admin/news', \App\Livewire\Admin\AdminNewsComponent::class)->name('a
 Route::get('admin/create-news', \App\Livewire\Admin\CreateNewsComponent::class)->name('admin.news.create');
 Route::get('admin/news/edit/{id}', \App\Livewire\Admin\EditNewsComponent::class)->name('admin.news.edit');
 
-Route::get('admin/partners', App\Livewire\Admin\Partners\IndexComponent::class)->name('admin.partners');
+Route::get('admin/partners', App\Livewire\Admin\Partners\IndexComponent::class)->name('admin.partners.index');
+Route::get('admin/partners/create', \App\Livewire\Admin\Partners\Create::class)->name('admin.partners.create');
+Route::get('admin/partners/edit/{id}', \App\Livewire\Admin\Partners\Edit::class)->name('admin.partners.edit');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

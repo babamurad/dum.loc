@@ -24,7 +24,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Список партнеров</h3>
-                            <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.partner.create') }}" wire:navigate>Добавить нового партнера</a>
+                            <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.partners.create') }}" wire:navigate>Добавить нового партнера</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -44,7 +44,7 @@
                                     <tr>
                                         <td>{{ $partner->id }}</td>
                                         <td>
-                                            <img class="w-25" src="{{ asset('images/news') . '/' . $partner->image }}" alt="{{ $partner->title }}">
+                                            <img class="w-25" src="{{ asset('images/partners') . '/' . $partner->image }}" alt="{{ $partner->title }}">
                                         </td>
                                         <td class="w-25">
                                             {{ $partner->title }}
@@ -53,10 +53,10 @@
                                             <span class="badge p-2 {{ $partner->published == true? 'bg-success': 'bg-danger' }}">{{ $partner->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
                                         </td>
                                         <td><div>
-                                                <a href="{{ route('admin.news.edit', ['id' => $partner->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
+                                                <a href="{{ route('admin.partners.edit', ['id' => $partner->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews" wire:click="deleteId({{ $partner->id }})">
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDelete" wire:click="deleteId({{ $partner->id }})">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </div></td>
@@ -81,11 +81,11 @@
     </section>
     <script>
         window.addEventListener('closeNewsModal', event=> {
-            $('#modalDeleteNews').modal('hide');
+            $('#modalDelete').modal('hide');
         })
 
     </script>
-    <div wire:ignore.self class="modal fade" id="modalDeleteNews" style="display: none;" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="modalDelete" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

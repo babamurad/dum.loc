@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="{{ asset('admin/dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="{{ asset('admin/dist/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -101,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="{{ asset('admin/dist/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -171,7 +171,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Alexander Pierce</a>
@@ -198,7 +198,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                 </li>
                 <li class="nav-item">
-                        <a href="{{ route('admin.partners') }}" class="nav-link {{ Request::is('admin/partners') ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('admin.partners.index') }}" class="nav-link {{ Request::is('admin/partners') ? 'active' : '' }}" wire:navigate>
                             <i class="nav-icon fas fa-handshake"></i>
                             <p>
                                 Партнеры

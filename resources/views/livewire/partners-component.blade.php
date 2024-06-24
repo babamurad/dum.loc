@@ -6,38 +6,18 @@
             </h2>
 
             <div class="row justify-content-center">
-                <div class="col-6 col-md-4">
+                @foreach($partners as $partner)
+                <div class="col-6 col-md-3">
                     <div class="card mb-3">
-                        <img src="{{ asset('img/placeholder-red.png') }}" class="card-img-top" alt="Логотип партнера 1">
+                        <img src="{{ asset('images/partners') . '/' . $partner->image }}" class="card-img-top" alt="Логотип партнера">
                         <div class="card-body">
-                            <h5 class="card-title">Название партнера 1</h5>
-                            <p class="card-text">Краткое описание партнера 1.</p>
-                            <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light">Подробнее</button>
+                            <h5 class="card-title">{{ $partner->title }}</h5>
+                            <p class="card-text">{{ $partner->desc }}</p>
+{{--                            <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light">Подробнее</button>--}}
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-md-4">
-                    <div class="card mb-3">
-                        <img src="{{ asset('img/placeholder-red.png') }}" class="card-img-top" alt="Логотип партнера 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Название партнера 2</h5>
-                            <p class="card-text">Краткое описание партнера 2.</p>
-                            <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4">
-                    <div class="card mb-3">
-                        <img src="{{ asset('img/placeholder-red.png') }}" class="card-img-top" alt="Логотип партнера 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Название партнера 3</h5>
-                            <p class="card-text">Краткое описание партнера 3.</p>
-                            <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

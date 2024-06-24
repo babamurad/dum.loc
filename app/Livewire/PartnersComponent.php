@@ -2,12 +2,14 @@
 
 namespace App\Livewire;
 
+use App\Models\Partner;
 use Livewire\Component;
 
 class PartnersComponent extends Component
 {
     public function render()
     {
-        return view('livewire.partners-component');
+        $partners = Partner::all();
+        return view('livewire.partners-component', compact('partners'));
     }
 }

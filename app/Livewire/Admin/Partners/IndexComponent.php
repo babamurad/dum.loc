@@ -10,10 +10,31 @@ class IndexComponent extends Component
 {
     use WithPagination;
 
+    public $del_id;
+    public $image;
+
     public function render()
     {
         $partners = Partner::paginate(8);
         return view('livewire.admin.partners.index-component', compact('partners'))
             ->layout('components.layouts.admin-app');
+    }
+
+    public function deleteId($id)
+    {
+        $this->del_id = $id;
+    }
+
+    public function destroy()
+    {
+        $item = Partner::findOrFail($this->del_id);
+        $this->image = $item->image;
+        if (file_exists('images/partners/'.$this->image)){
+            unlink('images/partners/'.$this->image);
+        }
+        $item->delete();
+
+        $this->dispatch('closeNewsModal');
+        session()->flash('error', 'Данные партнера успешно удалены!');
     }
 }
