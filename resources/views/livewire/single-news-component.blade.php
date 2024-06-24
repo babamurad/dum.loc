@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <div class="card mb-4">
-                    <img class="card-img-top" src="https://via.placeholder.com/800x400" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('images/news/' . $newsItem->image) }}" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title">News Title 1</h2>
-                        <p class="card-text">Full description of the news. This is where the full content of the news article will go. It can be multiple paragraphs and include various details about the news event.</p>
+                        <h2 class="card-title">{{ $newsItem->title }}</h2>
+                        <p class="card-text">{{ $newsItem->text }}</p>
                         <a wire:navigate href="/" class="btn btn-primary">Back to News Carousel</a>
                     </div>
                 </div>

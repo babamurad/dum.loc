@@ -15,97 +15,26 @@
         <!--Slides-->
         <div class="carousel-inner" role="listbox">
             <!--First slide-->
-            <div class="carousel-item active">
+            @foreach($chunkedNewsItems as $chunk)
+            <div class="carousel-item {{ $loop->first? 'active':'' }}">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 1</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
+                    @foreach($chunk as $newsItem)
+                        <div class="col-md-3">
+                            <div class="card mb-2 h-100" style="border: solid 1px #a5a1a185;">
+                                <img class="card-img-top" src="{{ asset('images/news/' . $newsItem->image) }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ $newsItem->title }}</h4>
+                                    <p class="card-text">{{ \Illuminate\Support\Str::limit($newsItem->text, 50, $end = '...') }}</p>
+                                    <a href="{{ route('single.news', ['id' => $newsItem->id]) }}" class="btn btn-primary" wire:navigate>Read more</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 2</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 3</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 4</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+            @endforeach
             <!--/.First slide-->
-            <!--Second slide-->
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 5</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 6</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 7</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="{{ asset('img/placeholder-200.png') }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">News Title 8</h4>
-                                <p class="card-text">Brief description of the news.</p>
-                                <a href="{{ route('single.news') }}" class="btn btn-primary" wire:navigate>Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/.Second slide-->
+
             <!-- Add more slides as needed -->
         </div>
         <!--/.Slides-->

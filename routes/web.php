@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Livewire\HomeComponent::class)->name('home');
-Route::get('single-news', \App\Livewire\SingleNewsComponent::class)->name('single.news');
+Route::get('single-news/{id}', \App\Livewire\SingleNewsComponent::class)->name('single.news');
 
 Route::get('admin/dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
 Route::get('admin/news', \App\Livewire\Admin\AdminNewsComponent::class)->name('admin.news');
