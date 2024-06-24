@@ -58,10 +58,17 @@
                                     <textarea wire:model.blur="desc" class="form-control @error('desc') is-invalid @enderror" rows="6" placeholder="Текст ..."></textarea>
                                     @error('desc') <span class="error invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="published" wire:model="published">
-                                    <label class="form-check-label" for="published">Опубликовано</label>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input class="form-control" type="number" placeholder="Порядок" wire:model="order">
+                                    </div>
+                                    <div class="form-check ml-3">
+                                        <input type="checkbox" class="form-check-input" id="published" wire:model="published">
+                                        <label class="form-check-label" for="published">Опубликовано</label>
+                                    </div>
                                 </div>
+
+
                             </div>
                             <!-- /.card-body -->
 

@@ -9,4 +9,9 @@ class Partner extends Model
 {
     use HasFactory;
     protected $fillable = ['image', 'title', 'desc', 'published'];
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
 }

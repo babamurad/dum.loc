@@ -15,7 +15,7 @@ class IndexComponent extends Component
 
     public function render()
     {
-        $partners = Partner::paginate(8);
+        $partners = Partner::orderBy('order')->paginate(18);
         return view('livewire.admin.partners.index-component', compact('partners'))
             ->layout('components.layouts.admin-app');
     }

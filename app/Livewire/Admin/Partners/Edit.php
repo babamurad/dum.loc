@@ -22,12 +22,11 @@ class Edit extends Component
     public bool $published = false;
     public $edit_id;
     public $newImage;
+    public $order;
 
     protected array $rules = [
         'image' => 'max:1024',
         'newImage' => 'max:1024',
-        'title' => 'required|min:5',
-        'desc' => 'required|min:5',
     ];
 
     public function render()
@@ -42,6 +41,7 @@ class Edit extends Component
         $this->image = $item->image;
         $this->title = $item->title;
         $this->desc = $item->desc;
+        $this->order = $item->order;
         $this->published = $item->published;
     }
 
@@ -60,6 +60,7 @@ class Edit extends Component
         }
         $item->title = $this->title;
         $item->desc = $this->desc;
+        $item->order = $this->order;
         $item->published = $this->published;
         $item->update();
 

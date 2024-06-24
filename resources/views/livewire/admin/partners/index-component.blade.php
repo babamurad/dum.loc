@@ -35,6 +35,7 @@
                                     <th style="width: 10px">#</th>
                                     <th>Изображение</th>
                                     <th>Заголовок</th>
+                                    <th>Порядок</th>
                                     <th>Статус</th>
                                     <th>Действия</th>
                                 </tr>
@@ -48,6 +49,10 @@
                                         </td>
                                         <td class="w-25">
                                             {{ $partner->title }}
+                                        </td>
+                                        <td class="w-25">
+                                            <i class="fas fa-sort"></i>
+                                            {{ $partner->order }}
                                         </td>
                                         <td class="w-25">
                                             <span class="badge p-2 {{ $partner->published == true? 'bg-success': 'bg-danger' }}">{{ $partner->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>

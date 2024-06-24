@@ -20,11 +20,10 @@ class Create extends Component
     public $desc;
 
     public bool $published = false;
+    public $order;
 
     protected array $rules = [
         'image' => 'required|image|max:1024',
-        'title' => 'required|min:5',
-        'desc' => 'required|min:5',
     ];
 
     public function render()
@@ -43,6 +42,7 @@ class Create extends Component
         $item->title = $this->title;
         $item->desc = $this->desc;
         $item->published = $this->published;
+        $item->order = $this->order;
         $item->save();
         $this->resetInputFields();
         session()->flash('success', 'Партнер успешно добавлен!');

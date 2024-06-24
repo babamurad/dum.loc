@@ -12,7 +12,7 @@
                         <img src="{{ asset('images/partners') . '/' . $partner->image }}" class="card-img-top" alt="Логотип партнера">
                         <div class="card-body">
                             <h5 class="card-title">{{ $partner->title }}</h5>
-                            <p class="card-text">{{ $partner->desc }}</p>
+{{--                            <p class="card-text">{{ $partner->desc }}</p>--}}
 {{--                            <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light">Подробнее</button>--}}
                         </div>
                     </div>
