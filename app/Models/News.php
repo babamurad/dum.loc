@@ -10,4 +10,9 @@ class News extends Model
     use HasFactory;
 
     protected $fillable = ['image', 'title', 'text'];
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
 }

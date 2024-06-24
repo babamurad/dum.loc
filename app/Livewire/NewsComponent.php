@@ -11,9 +11,9 @@ class NewsComponent extends Component
 
     public function render()
     {
-        $newsItems = News::all();
+        $newsItems = News::published()->get();
         $chunkedNewsItems  = $newsItems->chunk(4);
-//        dd($chel);
+
         return view('livewire.news-component', compact('chunkedNewsItems'));
     }
 }

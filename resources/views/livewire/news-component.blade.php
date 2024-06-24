@@ -17,7 +17,7 @@
             <!--First slide-->
             @foreach($chunkedNewsItems as $chunk)
             <div class="carousel-item {{ $loop->first? 'active':'' }}">
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach($chunk as $newsItem)
                         <div class="col-md-3">
                             <div class="card mb-2 h-100" style="border: solid 1px #a5a1a185;">
