@@ -14,6 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
+    @stack('date-css')
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
 </head>
@@ -205,6 +206,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                 </li>
+                <li class="nav-item">
+                        <a href="{{ route('admin.questions.index') }}" class="nav-link {{ Request::is('admin/questions') ? 'active' : '' }}" wire:navigate>
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>
+                                Вопросы
+                            </p>
+                        </a>
+                </li>
 
                 </ul>
             </nav>
@@ -249,5 +258,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
+@stack('datepicker')
 </body>
 </html>

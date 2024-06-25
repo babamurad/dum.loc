@@ -12,6 +12,7 @@ class IndexComponent extends Component
 
     public $del_id;
     public $image;
+    public $selectedDate;
 
     public function render()
     {

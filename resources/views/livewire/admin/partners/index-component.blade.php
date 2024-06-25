@@ -1,4 +1,25 @@
 @section('title', 'Admin Partners')
+@push('date-css')
+{{--    это протестировал скрипты--}}
+{{--    <link rel="stylesheet" href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}">--}}
+{{--@endpush--}}
+{{--@push('datepicker')--}}
+{{--    <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>--}}
+{{--    <script>--}}
+{{--        document.addEventListener('livewire:load', function () {--}}
+{{--            //Date picker--}}
+{{--            $('#reservationdate').datetimepicker({--}}
+{{--                format: 'L'--}}
+{{--            });--}}
+{{--            // $('#datepicker').datepicker({--}}
+{{--            //     format: 'yyyy-mm-dd',--}}
+{{--            //     autoclose: true--}}
+{{--            // }).on('changeDate', function (e) {--}}
+{{--            // @this.set('selectedDate', e.format('yyyy-mm-dd'));--}}
+{{--            // });--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endpush--}}
 <div>
 
     <section class="content-header">

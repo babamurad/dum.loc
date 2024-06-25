@@ -25,6 +25,11 @@ Route::get('admin/partners', App\Livewire\Admin\Partners\IndexComponent::class)-
 Route::get('admin/partners/create', \App\Livewire\Admin\Partners\Create::class)->name('admin.partners.create');
 Route::get('admin/partners/edit/{id}', \App\Livewire\Admin\Partners\Edit::class)->name('admin.partners.edit');
 
+Route::get('admin/questions', \App\Livewire\Admin\Questions\QuestionsIndexComponent::class)->name('admin.questions.index');
+Route::get('admin/questions/create', \App\Livewire\Admin\Questions\QuestionsCreateComponent::class)->name('admin.questions.create');
+Route::get('admin/questions/edit/{id}', \App\Livewire\Admin\Questions\QuestionsEditComponent::class)->name('admin.questions.edit');
+
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
