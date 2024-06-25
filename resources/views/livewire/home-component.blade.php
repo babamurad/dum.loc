@@ -59,6 +59,9 @@
 
         <!--/Partners-->
 
+        <!-- Questions FAQ -->
+        @livewire('question-component')
+        <!-- Questions FAQ -->
 
         <!-- Grid column -->
 

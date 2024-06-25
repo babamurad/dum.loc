@@ -37,7 +37,6 @@ class QuestionsEditComponent extends Component
     {
         $this->validate();
         $question = Question::findOrFail($this->edit_id);
-        $question = new Question();
         $question->question = $this->question;
         $question->answer = $this->answer;
         $question->published = $this->published;

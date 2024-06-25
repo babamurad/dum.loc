@@ -13,7 +13,7 @@ class QuestionsIndexComponent extends Component
 
     public function render()
     {
-        $questions = Question::paginate(5);
+        $questions = Question::orderBy('order')->paginate(5);
         return view('livewire.admin.questions.questions-index-component', compact('questions'))
             ->layout('components.layouts.admin-app');
     }
