@@ -1,16 +1,18 @@
-@section('title', 'Admin FAQ')
+@section('title', 'Admin Awards')
+
 <div>
+
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        Вопросы
+                        Награды
                         @include('components.alerts')
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Главная</a></li>
-                            <li class="breadcrumb-item active">Вопросы</li>
+                            <li class="breadcrumb-item active">Награды</li>
                         </ol>
                     </div>
                 </div>
@@ -22,51 +24,53 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Список вопросов и  ответов</h3>
-                                <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.questions.create') }}" wire:navigate>Добавить новый вопрос</a>
+                                <h3 class="card-title">Список Наград</h3>
+                                <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.awards.create') }}" wire:navigate>Добавить новоую награду</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @if($questions->count() > 0)
+                                @if($awards->count() > 0)
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
                                             <th style="width: 10px">#</th>
-                                            <th>Вопрос</th>
-                                            <th>Ответ</th>
+                                            <th>Изображение</th>
+                                            <th>Заголовок</th>
                                             <th>Порядок</th>
                                             <th>Статус</th>
                                             <th>Действия</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($questions as $question)
+                                        @foreach($awards as $award)
                                             <tr>
-                                                <td>{{ $question->id }}</td>
+                                                <td>{{ $award->id }}</td>
                                                 <td>
-                                                    {{ $question->question }}
+                                                    <img class="w-25 rounded" src="{{ asset('images/awards') . '/' . $award->image }}" alt="{{ $award->title }}">
                                                 </td>
-                                                <td>
-                                                    {{ \Illuminate\Support\Str::limit($question->answer, 70, $end = '...')  }}
+                                                <td class="w-25">
+                                                    <a href="{{ route('admin.awards.edit', ['id' => $award->id]) }}" wire:navigate>
+                                                        {{ $award->title }}
+                                                    </a>
                                                 </td>
-                                                <td>
+                                                <td class="w-25">
                                                     <i class="fas fa-sort"></i>
-                                                    {{ $question->order }}
+                                                    {{ $award->order }}
                                                 </td>
                                                 <td class="w-25">
                                                     <div class="row">
                                                         <div class="form-check ml-3">
-                                                            <input type="checkbox" class="form-check-input" id="published" wire:model="published" wire:click="unPublish({{ $question->id }})" {{ $question->published == true? 'checked': '' }}>
+                                                            <input type="checkbox" class="form-check-input" id="published" wire:model="published" wire:click="unPublish({{ $award->id }})" {{ $award->published == true? 'checked': '' }}>
                                                         </div>
-                                                        <span class="badge p-2 {{ $question->published == true? 'bg-success': 'bg-danger' }}">{{ $question->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                                        <span class="badge p-2 {{ $award->published == true? 'bg-success': 'bg-danger' }}">{{ $award->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{ route('admin.questions.edit', ['id' => $question->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
+                                                        <a href="{{ route('admin.awards.edit', ['id' => $award->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDelete" wire:click="deleteId({{ $question->id }})">
+                                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDelete" wire:click="deleteId({{ $award->id }})">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </button>
                                                     </div>
@@ -76,13 +80,10 @@
                                         </tbody>
                                     </table>
                                 @else
-                                    <p>Список вопросов и ответов пуст.</p>
+                                    <p>Список наград пуст.</p>
                                 @endif
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer">
-                                {{ $questions->links() }}
-                            </div>
 
                         </div>
                     </div>
@@ -106,7 +107,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Вы действительно хотите удалить вопрос-ответ?</p>
+                        <p>Вы действительно хотите удалить данные о награде?</p>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -117,5 +118,5 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-</div>
+    </div>
 

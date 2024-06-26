@@ -32,6 +32,13 @@ class AdminNewsComponent extends Component
         session()->flash('error', 'Новость успешно удалена!');
     }
 
+    public function unPublish($id)
+    {
+        $award = News::findOrFail($id);
+        $award->published = !$award->published;
+        $award->update();
+    }
+
     public function render()
     {
         $news = News::orderBy('id', 'desc')->paginate(5);

@@ -36,6 +36,9 @@
     <!-- Your custom styles (optional) -->
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- jQuery -->
+
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
     <style>
         @media (min-width: 800px) and (max-width: 850px) {
@@ -49,24 +52,25 @@
         }
     </style>
     <script>
-        $('body').append('<div class="upbtn"></div>');
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('.upbtn').css({
-                    bottom: '15px'
-                });
-            } else {
-                $('.upbtn').css({
-                    bottom: '-80px'
-                });
-            }
-        });
-        $('.upbtn').on('click', function() {
+        // $('body').append('<div class="upbtn"></div>');
+
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.upbtn').css({
+                        bottom: '15px'
+                    });
+                } else {
+                    $('.upbtn').css({
+                        bottom: '-80px'
+                    });
+                }
+            })
+        $(".upbtn").on('click', function() {
             $('html, body').animate({
                 scrollTop: 0
             }, 500);
             return false;
-        });
+        })
     </script>
 
 
@@ -94,14 +98,14 @@
 </head>
 
 <body>
-@if (Route::current()->uri == 'home')
+@if (Route::current()->uri == '/')
 <section id="home" style="background-image: url({{ asset('img/small_0.jpg') }}); background-repeat: no-repeat; background-size: cover;">
 
     <div class="rgba-black-strong">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand" href="#home">
+                <a class="navbar-brand" href="{{ route('home') }}#home" wire:navigate>
                     <img src="{{ asset('img/Logo20.png') }}" alt="logo" class="w-59">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,7 +152,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar top-nav-collapse" style="        background-color: #1c2a48 !important;">
                 <div class="container">
-                    <a class="navbar-brand" href="#home">
+                    <a class="navbar-brand" href="{{ route('home') }}#home">
                         <img src="{{ asset('img/Logo20.png') }}" alt="logo" class="w-59">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -345,9 +349,7 @@
 
 
 
-<!-- jQuery -->
 
-<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
 <!-- Bootstrap tooltips -->
 

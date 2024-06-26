@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Panel DUM</title>
+    <title>@yield('title') - DUM</title>
     <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 
     <!-- Google Font: Source Sans Pro -->
@@ -211,6 +211,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>
                                 Вопросы
+                            </p>
+                        </a>
+                </li>
+                <li class="nav-item">
+                        <a href="{{ route('admin.awards.index') }}" class="nav-link {{ Request::is('admin/awards') ? 'active' : '' }}" wire:navigate>
+                            <i class="nav-icon fas fa-trophy"></i>
+                            <p>
+                                Награды
+                            </p>
+                        </a>
+                </li>
+                <li class="nav-item">
+                        <a href="{{ route('admin.contacts') }}" class="nav-link {{ Request::is('admin/contacts') ? 'active' : '' }}" wire:navigate>
+                            <i class="nav-icon fas fa-building"></i>
+                            <p>
+                                Компания
                             </p>
                         </a>
                 </li>

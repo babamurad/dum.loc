@@ -12,13 +12,19 @@ class IndexComponent extends Component
 
     public $del_id;
     public $image;
-    public $selectedDate;
 
     public function render()
     {
         $partners = Partner::orderBy('order')->paginate(18);
         return view('livewire.admin.partners.index-component', compact('partners'))
             ->layout('components.layouts.admin-app');
+    }
+
+    public function unPublish($id)
+    {
+        $award = Partner::findOrFail($id);
+        $award->published = !$award->published;
+        $award->update();
     }
 
     public function deleteId($id)

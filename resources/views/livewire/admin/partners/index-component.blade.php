@@ -1,25 +1,5 @@
 @section('title', 'Admin Partners')
-@push('date-css')
-{{--    это протестировал скрипты--}}
-{{--    <link rel="stylesheet" href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}">--}}
-{{--@endpush--}}
-{{--@push('datepicker')--}}
-{{--    <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>--}}
-{{--    <script>--}}
-{{--        document.addEventListener('livewire:load', function () {--}}
-{{--            //Date picker--}}
-{{--            $('#reservationdate').datetimepicker({--}}
-{{--                format: 'L'--}}
-{{--            });--}}
-{{--            // $('#datepicker').datepicker({--}}
-{{--            //     format: 'yyyy-mm-dd',--}}
-{{--            //     autoclose: true--}}
-{{--            // }).on('changeDate', function (e) {--}}
-{{--            // @this.set('selectedDate', e.format('yyyy-mm-dd'));--}}
-{{--            // });--}}
-{{--        });--}}
-{{--    </script>--}}
-{{--@endpush--}}
+
 <div>
 
     <section class="content-header">
@@ -78,7 +58,12 @@
                                             {{ $partner->order }}
                                         </td>
                                         <td class="w-25">
-                                            <span class="badge p-2 {{ $partner->published == true? 'bg-success': 'bg-danger' }}">{{ $partner->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                            <div class="row">
+                                                <div class="form-check ml-3">
+                                                    <input type="checkbox" class="form-check-input" id="published" wire:model="published" wire:click="unPublish({{ $partner->id }})" {{ $partner->published == true? 'checked': '' }}>
+                                                </div>
+                                                <span class="badge p-2 {{ $partner->published == true? 'bg-success': 'bg-danger' }}">{{ $partner->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                            </div>
                                         </td>
                                         <td>
                                             <div>

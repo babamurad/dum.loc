@@ -18,6 +18,13 @@ class QuestionsIndexComponent extends Component
             ->layout('components.layouts.admin-app');
     }
 
+    public function unPublish($id)
+    {
+        $award = Question::findOrFail($id);
+        $award->published = !$award->published;
+        $award->update();
+    }
+
     public function deleteId($id)
     {
         $this->del_id = $id;

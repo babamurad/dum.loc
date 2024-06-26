@@ -49,7 +49,12 @@
                                             {{ $item->title }}
                                         </td>
                                         <td class="w-25">
-                                            <span class="badge p-2 {{ $item->published == true? 'bg-success': 'bg-danger' }}">{{ $item->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                            <div class="row">
+                                                <div class="form-check ml-3">
+                                                    <input type="checkbox" class="form-check-input" id="published" wire:model="published" wire:click="unPublish({{ $item->id }})" {{ $item->published == true? 'checked': '' }}>
+                                                </div>
+                                                <span class="badge p-2 {{ $item->published == true? 'bg-success': 'bg-danger' }}">{{ $item->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                            </div>
                                         </td>
                                         <td><div>
                                                 <a href="{{ route('admin.news.edit', ['id' => $item->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">

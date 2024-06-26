@@ -1,3 +1,4 @@
+@section('title', 'Admin Dashboard')
 <div>
     <!-- Content Header (Page header) -->
     <div class="content-header">

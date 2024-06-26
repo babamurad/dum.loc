@@ -28,36 +28,19 @@
                 Наши награды
             </h2>
 
+
             <div class="row justify-content-center">
+                @foreach($awards as $award)
                 <div class="col-6 col-md-4">
                     <div class="card mb-3">
-                        <img src="{{ asset('img/award.png') }}" class="card-img-top" alt="Награда 1">
+                        <img src="{{ asset('images/awards') . '/' . $award->image }}" class="card-img-top" alt="Награда 1">
                         <div class="card-body">
-                            <h5 class="card-title">Название награды 1</h5>
-                            <p class="card-text">Краткое описание награды 1.</p>
+                            <h5 class="card-title">{{ $award->title }}</h5>
+                            <p class="card-text">{{ $award->text }}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-md-4">
-                    <div class="card mb-3">
-                        <img src="{{ asset('img/award.png') }}" class="card-img-top" alt="Награда 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Название награды 2</h5>
-                            <p class="card-text">Краткое описание награды 2.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4">
-                    <div class="card mb-3">
-                        <img src="{{ asset('img/award.png') }}" class="card-img-top" alt="Награда 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Название награды 3</h5>
-                            <p class="card-text">Краткое описание награды 3.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -195,7 +195,7 @@
             <!--/First column-->
             <!--Second column-->
             <div class="col-md-4 flex-center wow animated fadeInUp">
-                <img src="img/our_files.JPEG" alt="MDB Magazine Template displayed on iPhone"
+                <img src="{{ asset('images/preimus-cr.jpg') }}" alt="MDB Magazine Template displayed on iPhone"
                      class="z-depth-0 img-fluid">
             </div>
             <!--/Second column-->

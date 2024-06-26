@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', \App\Livewire\HomeComponent::class)->name('home');
+Route::get('/', \App\Livewire\HomeComponent::class)->name('home');
 Route::get('single-news/{id}', \App\Livewire\SingleNewsComponent::class)->name('single.news');
 
 Route::get('admin/dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
@@ -29,6 +29,11 @@ Route::get('admin/questions', \App\Livewire\Admin\Questions\QuestionsIndexCompon
 Route::get('admin/questions/create', \App\Livewire\Admin\Questions\QuestionsCreateComponent::class)->name('admin.questions.create');
 Route::get('admin/questions/edit/{id}', \App\Livewire\Admin\Questions\QuestionsEditComponent::class)->name('admin.questions.edit');
 
+Route::get('admin/awards', App\Livewire\Admin\Awards\AwardsIndex::class)->name('admin.awards.index');
+Route::get('admin/awards/create', App\Livewire\Admin\Awards\AwardsCreate::class)->name('admin.awards.create');
+Route::get('admin/awards/edit/{id}', \App\Livewire\Admin\Awards\AwardsEdit::class)->name('admin.awards.edit');
+
+Route::get('admin/contacts', \App\Livewire\Admin\ContactComponent::class)->name('admin.contacts');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
