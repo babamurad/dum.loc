@@ -9,7 +9,7 @@ class News extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image', 'title', 'text'];
+    protected $fillable = ['image', 'title', 'text', 'order'];
 
     public function scopePublished($query)
     {

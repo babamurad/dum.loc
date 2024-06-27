@@ -92,10 +92,25 @@
                                     </div>
                                 </div>
                                 @error('text') <span class="error invalid-feedback">{{ $message }}</span> @enderror
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="published" wire:model="published">
-                                    <label class="form-check-label" for="published">Опубликовано</label>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group row">
+                                            <label for="order" class="col-sm-3 col-form-label">Порядок</label>
+                                            <div class="col-sm-4">
+                                                <input type="number" class="form-control" id="order" wire:model="order">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="published" wire:model="published">
+                                            <label class="form-check-label" for="published">Опубликовано</label>
+                                        </div>
+                                    </div>
                                 </div>
+
+
+
                             </div>
                             <!-- /.card-body -->
 

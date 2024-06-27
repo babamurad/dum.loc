@@ -1,6 +1,10 @@
 @section('title', 'Admin News')
 <div>
-
+    <style>
+        .order-center {
+            text-align: center; /* Центрирование содержимого ячейки */
+        }
+    </style>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -34,6 +38,7 @@
                                     <th style="width: 10px">#</th>
                                     <th>Изображение</th>
                                     <th>Заголовок</th>
+                                    <th>Порядок</th>
                                     <th>Статус</th>
                                     <th>Действия</th>
                                 </tr>
@@ -47,6 +52,11 @@
                                         </td>
                                         <td class="w-25">
                                             {{ $item->title }}
+                                        </td>
+                                        <td>
+                                                <i class="fas fa-chevron-circle-left mr-2 mt-1" role="button" style="color: #0075ff;" wire:click="DecOrder({{$item->id}})"></i>
+                                                <span>{{ $item->order }}</span>
+                                                <i class="fas fa-chevron-circle-right ml-2 mt-1" role="button" style="color: #0075ff;" wire:click="IncOrder({{$item->id}})"></i>
                                         </td>
                                         <td class="w-25">
                                             <div class="row">

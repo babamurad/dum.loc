@@ -34,9 +34,26 @@ class AdminNewsComponent extends Component
 
     public function unPublish($id)
     {
-        $award = News::findOrFail($id);
-        $award->published = !$award->published;
-        $award->update();
+        $item = News::findOrFail($id);
+        $item->published = !$item->published;
+        $item->update();
+    }
+
+    public function DecOrder($id)
+    {
+        $item = News::findOrFail($id);
+        $item->order = --$item->order;
+        if ($item->order < 0) {
+            $item->order = 0;
+        }
+        $item->update();
+    }
+    public function IncOrder($id)
+    {
+        //dd($id);
+        $item = News::findOrFail($id);
+        $item->order = ++$item->order;
+        $item->update();
     }
 
     public function render()

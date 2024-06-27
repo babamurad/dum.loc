@@ -22,6 +22,7 @@ class EditNewsComponent extends Component
     public $text;
 
     public bool $published = false;
+    public $order;
 
     public $newImage;
 
@@ -38,6 +39,7 @@ class EditNewsComponent extends Component
         $this->title = '';
         $this->text = '';
         $this->published = false;
+        $this->order = '';
     }
 
     /**
@@ -53,6 +55,7 @@ class EditNewsComponent extends Component
         $item->title = $this->title;
         $item->text = $this->text;
         $item->published = $this->published;
+        $item->order = $this->order;
 
         if ($this->newImage){
             if (file_exists('news/'.$this->image)){
@@ -76,6 +79,7 @@ class EditNewsComponent extends Component
         $this->image = $item->image;
         $this->title = $item->title;
         $this->text = $item->text;
+        $this->order = $item->order;
         $this->published = $item->published;
     }
 
