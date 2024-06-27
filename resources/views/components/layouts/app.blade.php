@@ -300,9 +300,12 @@
                 url:  "contact.php",
                 data: form_data,
                 success: function () {
-                    //alert('Успешно');
-                    result = '<h3>Ваше сообщение отправлено.</h3>';
+                    // Сообщение об успешной отправке
+                    result = '<h3>Ваше сообщение успешно отправлено.</h3>';
                     $('.status').html(result);
+
+                    // Очистка полей формы
+                    $('#contact-form')[0].reset();
                 },
                 error: function () {
                     alert('возникла ошибка');

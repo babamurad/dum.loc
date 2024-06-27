@@ -19,7 +19,7 @@
             <div class="carousel-item {{ $loop->first? 'active':'' }}">
                 <div class="row justify-content-center">
                     @foreach($chunk as $newsItem)
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card mb-2 h-100" style="border: solid 1px #a5a1a185;">
                                 <img class="card-img-top" src="{{ asset('images/news/' . $newsItem->image) }}" alt="Card image cap">
                                 <div class="card-body">
