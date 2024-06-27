@@ -1,3 +1,31 @@
+@push('editor-css')
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
+@endpush
+@push('editor-js')
+    <!-- Summernote -->
+    <script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script>
+        $(function () {
+            // Summernote
+            $('#summernote').summernote({
+                height: 300,
+                callbacks: {
+                    onChange: function(contents, $editable) {
+                    @this.set('text', contents);
+                    }
+                }
+            })
+
+            // CodeMirror
+            // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            //     mode: "htmlmixed",
+            //     theme: "monokai"
+            // });
+        })
+    </script>
+@endpush
+@section('title', 'Admin News Create')
 <div>
     <section class="content-header">
         <div class="container-fluid">
@@ -9,7 +37,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Создание Новости</li>
+                        <li class="breadcrumb-item active">Редактирование Новости</li>
                     </ol>
                 </div>
             </div>
@@ -21,7 +49,7 @@
                 <div class="col-sm-10 offset-1">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Добавить новость</h3>
+                            <h3 class="card-title">Редактировать новость</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -56,10 +84,14 @@
                                     @error('title') <span class="error invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Текст</label>
-                                    <textarea wire:model.blur="text" class="form-control @error('text') is-invalid @enderror" rows="6" placeholder="Текст ..."></textarea>
-                                    @error('text') <span class="error invalid-feedback">{{ $message }}</span> @enderror
+                                    <label class="ml-2">Текст</label>
+                                    <div wire:ignore class="col-sm-12">
+                                            <textarea wire:model.defer="text" id="summernote">
+                                            Place <em>some</em> <u>text</u> <strong>here</strong>
+                                        </textarea>
+                                    </div>
                                 </div>
+                                @error('text') <span class="error invalid-feedback">{{ $message }}</span> @enderror
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="published" wire:model="published">
                                     <label class="form-check-label" for="published">Опубликовано</label>

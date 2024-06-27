@@ -17,6 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @stack('date-css')
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
+    @stack('editor-css')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -275,5 +276,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
 @stack('datepicker')
+@stack('editor-js')
 </body>
 </html>

@@ -11,7 +11,7 @@ class SingleNewsComponent extends Component
 
     public function render()
     {
-        return view('livewire.single-news-component');
+        return view('livewire.single-news-component')->layout('components.layouts.app-second');
     }
 
     public function mount($id)

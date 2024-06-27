@@ -6,8 +6,8 @@
                     <img class="card-img-top" src="{{ asset('images/news/' . $newsItem->image) }}" alt="Card image cap">
                     <div class="card-body">
                         <h2 class="card-title">{{ $newsItem->title }}</h2>
-                        <p class="card-text">{{ $newsItem->text }}</p>
-                        <a wire:navigate href="{{ route('home') }}" class="btn btn-primary">Back to News Carousel</a>
+                        <p class="card-text">{!! $newsItem->text !!}</p>
+                        <a wire:navigate href="{{ route('home') }}" class="btn btn-primary">Back to Home</a>
                     </div>
                 </div>
             </div>

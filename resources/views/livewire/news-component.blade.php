@@ -24,7 +24,8 @@
                                 <img class="card-img-top" src="{{ asset('images/news/' . $newsItem->image) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $newsItem->title }}</h4>
-                                    <p class="card-text">{{ \Illuminate\Support\Str::limit($newsItem->text, 50, $end = '...') }}</p>
+                                    @php  @endphp
+                                    <p class="card-text">{!! \Illuminate\Support\Str::words($newsItem->text, 20, '...') !!}</p>
                                     <a href="{{ route('single.news', ['id' => $newsItem->id]) }}" class="btn btn-primary" wire:navigate>Read more</a>
                                 </div>
                             </div>

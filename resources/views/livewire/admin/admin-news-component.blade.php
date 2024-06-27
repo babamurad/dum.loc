@@ -57,7 +57,7 @@
                                             </div>
                                         </td>
                                         <td><div>
-                                                <a href="{{ route('admin.news.edit', ['id' => $item->id]) }}" wire:navigate type="button" class="btn btn-secondary btn-sm">
+                                                <a href="{{ route('admin.news.edit', ['id' => $item->id]) }}" type="button" class="btn btn-secondary btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews" wire:click="deleteId({{ $item->id }})">

@@ -54,17 +54,17 @@
     <script>
         // $('body').append('<div class="upbtn"></div>');
 
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('.upbtn').css({
-                        bottom: '15px'
-                    });
-                } else {
-                    $('.upbtn').css({
-                        bottom: '-80px'
-                    });
-                }
-            })
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.upbtn').css({
+                    bottom: '15px'
+                });
+            } else {
+                $('.upbtn').css({
+                    bottom: '-80px'
+                });
+            }
+        })
         $(".upbtn").on('click', function() {
             $('html, body').animate({
                 scrollTop: 0
@@ -98,54 +98,6 @@
 </head>
 
 <body>
-@if (Route::current()->uri == '/')
-<section id="home" style="background-image: url({{ asset('img/small_0.jpg') }}); background-repeat: no-repeat; background-size: cover;">
-
-    <div class="rgba-black-strong">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}#home" wire:navigate>
-                    <img src="{{ asset('img/Logo20.png') }}" alt="logo" class="w-59">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ml-auto smooth-scroll ">
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#sectionAbout" data-offset="100">О компании</a>
-                        </li>
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#mission" data-offset="100">Миссия и ценности</a>
-                        </li>
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#our_files" data-offset="100">Файлы</a>
-                        </li>
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#partners" data-offset="100">Партнеры</a>
-                        </li>
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#awards" data-offset="100">Награды</a>
-                        </li>
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#faq" data-offset="100">FAQ</a>
-                        </li>
-                        <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="#contacts" data-offset="100">Контакты</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-        <!-- Navbar -->
-
-        @livewire('rascet-stavok-component')
-
-    </div>
-</section>
-    @else
     <section>
 
         <div class="rgba-black-strong">
@@ -161,25 +113,25 @@
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="navbar-nav ml-auto smooth-scroll ">
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#sectionAbout" data-offset="100">О компании</a>
+                                <a class="nav-link" href="{{ url('/') }}#sectionAbout" data-offset="100">О компании</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#mission" data-offset="100" wire:navigate>Миссия и ценности</a>
+                                <a class="nav-link" href="{{ url('/') }}#mission" data-offset="100">Миссия и ценности</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#our_files" data-offset="100">Файлы</a>
+                                <a class="nav-link" href="{{ url('/') }}#our_files" data-offset="100">Файлы</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#partners" data-offset="100">Партнеры</a>
+                                <a class="nav-link" href="{{ url('/') }}#partners" data-offset="100">Партнеры</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#awards" data-offset="100">Награды</a>
+                                <a class="nav-link" href="{{ url('/') }}#awards" data-offset="100">Награды</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#faq" data-offset="100">FAQ</a>
+                                <a class="nav-link" href="{{ url('/') }}#faq" data-offset="100">FAQ</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ url('home/') }}#contacts" data-offset="100">Контакты</a>
+                                <a class="nav-link" href="{{ url('/') }}#contacts" data-offset="100">Контакты</a>
                             </li>
                         </ul>
 
@@ -189,7 +141,6 @@
             <!-- Navbar -->
         </div>
     </section>
-    @endif
 <main>
 
     {{ $slot }}
@@ -198,7 +149,7 @@
 
 <!--Footer-->
 
-@livewire('footer-component')
+    @livewire('footer-component')
 
 <!--/Footer-->
 
