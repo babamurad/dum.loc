@@ -35,7 +35,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h3 class="card-title">Список пользоаптелей</h3>
+                                    <h3 class="card-title">Список пользоаптелей </h3>
                                     <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.users.create') }}" wire:navigate>Добавить нового пользователя</a>
                                 </div>
 {{--                                <div class="col-sm-4 offset-2 text-right">--}}
@@ -74,12 +74,13 @@
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>
-                                            <a href="{{ route('admin.users.edit', ['id' => $user->id]) }}" wire:navigate>{{ $user->name }}</a>
+                                            {{ $user->name }}
                                         </td>
                                         <td class="w-25">
                                             {{ $user->email }}
                                         </td>
                                         <td class="w-25">
+                                            @if(auth()->user()->admin)
                                             <div class="row">
                                                 <div class="form-check ml-3">
                                                     <input role="button" type="checkbox" class="form-check-input larger-checkbox"
@@ -91,18 +92,25 @@
                                                     {{ $user->utype == 'ADM'? 'Открыт': 'Закрыт' }}
                                                 </span>
                                             </div>
+                                            @else
+                                                <span class="badge p-2 ml-1 {{ $user->utype == 'ADM'? 'bg-success': 'bg-danger' }}">
+                                                    {{ $user->utype == 'ADM'? 'Открыт': 'Закрыт' }}
+                                                </span>
+                                            @endif
                                         </td>
                                         <td>
-                                            <div>
-                                                <button href="#" type="button" class="btn btn-secondary btn-sm"
-                                                        wire:click="editUser({{ $user->id }})"  @if($user->admin) disabled @endif>
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews"
-                                                        wire:click="deleteId({{ $user->id }})" @if($userId == $user->id || $user->admin) disabled @endif>
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </div>
+                                            @if(auth()->user()->admin || auth()->user()->id == $user->id)
+                                            <button href="#" type="button" class="btn btn-secondary btn-sm"
+                                                    wire:click="editUser({{ $user->id }})">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            @endif
+                                            @if(auth()->user()->admin)
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews"
+                                                    wire:click="deleteId({{ $user->id }})">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

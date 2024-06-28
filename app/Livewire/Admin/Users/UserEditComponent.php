@@ -9,6 +9,8 @@ class UserEditComponent extends Component
 {
     public $editId;
     public $name, $email, $password, $utype;
+    public $password_confirmation;
+    public $admin;
 
     public function render()
     {
@@ -25,10 +27,16 @@ class UserEditComponent extends Component
         $this->email = $user->email;
         $this->password = $user->password;
         $this->utype = $user->utype == 'ADM'? true:false;
+        $this->admin = $user->admin;
     }
 
     public function update()
     {
+        $this->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
         $user = User::findOrFail($this->editId);
         if (!$user->admin) {
             $user->name = $this->name;

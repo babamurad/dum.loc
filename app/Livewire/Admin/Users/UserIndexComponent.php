@@ -26,7 +26,7 @@ class UserIndexComponent extends Component
 
     public function mount()
     {
-        $this->userId = Auth::user()->id;
+        $this->userId = auth()->user()->id;
     }
 
     public function ChangeType($id)

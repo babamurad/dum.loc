@@ -43,10 +43,20 @@
                                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
+                                            @if(auth()->user()->id == $editId)
                                             <div class="form-group">
-
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1"
+                                                       placeholder="Password" wire:model="password">
+                                                @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
+                                            <div class="form-group">
+                                                <label for="password_confirmation">Confirm Password:</label>
+                                                <input type="password" id="password_confirmation"  class="form-control" wire:model="password_confirmation" placeholder="Confirm Password">
+                                            </div>
+                                            @endif
 
+                                            @if($admin)
                                             <div class="form-group mt-4">
                                                 <div class="row">
                                                     <div class="col-sm-1"><label>Доступ</label></div>
@@ -65,6 +75,7 @@
                                                 </div>
 
                                             </div>
+                                            @endif
 
                                         </div>
                                         <!-- /.card-body -->

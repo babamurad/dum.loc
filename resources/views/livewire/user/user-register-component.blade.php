@@ -3,8 +3,8 @@
         <div class="row mt-5">
 
             <div class="col-sm-8 offset-sm-2 mt-4">
+            <div class="mt-3">@include('components.alerts')</div>
 
-                @include('components.alerts')
                 @if(auth()->check()) {{ auth()->user()->name }} @endif
                 @if(!$loginform)
                 <div class="card card-primary my-5">

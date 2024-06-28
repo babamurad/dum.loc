@@ -54,6 +54,7 @@
                                             <input type="password" id="password_confirmation"  class="form-control" wire:model="password_confirmation" placeholder="Confirm Password">
                                         </div>
 
+                                        @if(auth()->user()->admin)
                                         <div class="form-group mt-4">
                                             <div class="row">
                                                 <div class="col-sm-1"><label>Доступ</label></div>
@@ -72,6 +73,7 @@
                                             </div>
 
                                         </div>
+                                        @endif
 
                                     </div>
                                     <!-- /.card-body -->
