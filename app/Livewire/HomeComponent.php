@@ -14,9 +14,11 @@ class HomeComponent extends Component
 
     public function toDashboard()
     {
+//        dd(Auth::user()->utype. ' and ' . Auth::check());
         if (Auth::check() && Auth::user()->utype == 'ADM') {
-            return redirect()->route('admin.dashboard')->with(wire:navigate);
+            $this->redirectRoute('admin.dashboard');
+        } else {
+            $this->redirectRoute('login', navigate: true);
         }
-        return redirect()->route('login')->with(wire:navigate);
     }
 }

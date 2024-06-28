@@ -67,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="fas fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-header">{{ auth()->check()?? auth()->user()->name }}</span>
+                    <span class="dropdown-header">{{ auth()->check()? auth()->user()->name:'' }}</span>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('home') }}" class="dropdown-item" target="_blank">
                         <i class="fas fa-globe mr-4"></i>На сайт

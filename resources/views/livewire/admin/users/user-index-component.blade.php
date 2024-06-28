@@ -87,15 +87,19 @@
                                                            {{ $user->utype == 'ADM'? 'checked': '' }}
                                                            @if($userId == $user->id) disabled @endif >
                                                 </div>
-                                                <span class="badge p-2 ml-1 {{ $user->utype == 'ADM'? 'bg-success': 'bg-danger' }}">{{ $user->utype == 'ADM'? 'Открыт': 'Закрыт' }}</span>
+                                                <span class="badge p-2 ml-1 {{ $user->utype == 'ADM'? 'bg-success': 'bg-danger' }}">
+                                                    {{ $user->utype == 'ADM'? 'Открыт': 'Закрыт' }}
+                                                </span>
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <button href="#" type="button" class="btn btn-secondary btn-sm" wire:click="editUser({{ $user->id }})">
+                                                <button href="#" type="button" class="btn btn-secondary btn-sm"
+                                                        wire:click="editUser({{ $user->id }})"  @if($user->admin) disabled @endif>
                                                     <i class="fas fa-edit"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews" wire:click="deleteId({{ $user->id }})" @if($userId == $user->id) disabled @endif>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews"
+                                                        wire:click="deleteId({{ $user->id }})" @if($userId == $user->id || $user->admin) disabled @endif>
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </div>

@@ -19,6 +19,7 @@ class UserEditComponent extends Component
     public function mount($id)
     {
         $user = User::findOrFail($id);
+
         $this->editId = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
@@ -29,12 +30,18 @@ class UserEditComponent extends Component
     public function update()
     {
         $user = User::findOrFail($this->editId);
-        $user->name = $this->name;
-        $user->email = $this->email;
-        $user->password = $this->password;
-        $user->utype = $this->utype == true? 'ADM':'USR';
-        $user->update();
-        session()->flash('success', 'Данные пользователя изменены.');
-        redirect()->route('admin.users.index');
+        if (!$user->admin) {
+            $user->name = $this->name;
+            $user->email = $this->email;
+            $user->password = $this->password;
+            $user->utype = $this->utype == true? 'ADM':'USR';
+            $user->update();
+            session()->flash('success', 'Данные пользователя изменены.');
+            redirect()->route('admin.users.index');
+        } else {
+            session()->flash('error', 'Error.');
+            $this->redirectRoute('admin.users.index', navigate: true);
+        }
+
     }
 }
