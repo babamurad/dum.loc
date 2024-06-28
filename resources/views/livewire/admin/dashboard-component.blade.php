@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Starter Page</h1>
+                    <h1 class="m-0">Dashboard - {{ auth()->check()? auth()->user()->name:'' }}</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <div class="row">
+                            <div class="row text-center">
                                 <div class="col-sm-6">
                                     <h3>{{ $news }}</h3>
                                     <p>Новостей </p>
@@ -42,7 +42,7 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="{{ route('admin.news') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.news') }}" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -50,13 +50,22 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{ $partners }}</h3>
-                            <p>Partners</p>
+                            <div class="row text-center">
+                                <div class="col-sm-6">
+                                    <h3>{{ $partners }}</h3>
+                                    <p>Партнеры</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h3>{{ $partnersp }}</h3>
+                                    <p>Опубликовано</p>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="{{ route('admin.partners.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.partners.index') }}" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -64,14 +73,22 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $questions }}</h3>
+                            <div class="row text-center">
+                                <div class="col-sm-6">
+                                    <h3>{{ $questions }}</h3>
+                                    <p>Вопросы</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h3>{{ $questionsp }}</h3>
+                                    <p>Опубликовано</p>
+                                </div>
+                            </div>
 
-                            <p>Questions</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="{{ route('admin.questions.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.questions.index') }}" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -79,14 +96,22 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{{ $awards }}</h3>
+                            <div class="row text-center">
+                                <div class="col-sm-6">
+                                    <h3>{{ $awards }}</h3>
+                                    <p>Наград</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h3>{{ $awardsp }}</h3>
+                                    <p>Опубликовано</p>
+                                </div>
+                            </div>
 
-                            <p>Awards</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="{{ route('admin.awards.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.awards.index') }}" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

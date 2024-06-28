@@ -6,6 +6,7 @@ use App\Models\Award;
 use App\Models\News;
 use App\Models\Partner;
 use App\Models\Question;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class DashboardComponent extends Component
@@ -27,4 +28,5 @@ class DashboardComponent extends Component
             compact('news', 'partners', 'questions', 'awards', 'newsp', 'partnersp', 'questionsp', 'awardsp'))
             ->layout('components.layouts.admin-app');
     }
+
 }

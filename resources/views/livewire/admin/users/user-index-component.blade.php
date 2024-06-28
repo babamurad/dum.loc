@@ -1,4 +1,4 @@
-@section('title', 'Admin News')
+@section('title', 'Admin Users')
 <div>
     <style>
         .order-center {
@@ -21,7 +21,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Главная</a></li>
-                        <li class="breadcrumb-item active">Новости</li>
+                        <li class="breadcrumb-item active">Пользователи</li>
                     </ol>
                 </div>
             </div>
@@ -35,25 +35,25 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h3 class="card-title">Список новостей</h3>
-                                    <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.news.create') }}" wire:navigate>Добавить новость</a>
+                                    <h3 class="card-title">Список пользоаптелей</h3>
+                                    <a class="btn btn-sm btn-success ml-5" href="{{ route('admin.users.create') }}" wire:navigate>Добавить нового пользователя</a>
                                 </div>
-                                <div class="col-sm-4 offset-2 text-right">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-10"><label>Per Page</label></div>
-                                            <div class="col-sm-2">
-                                                <select class="form-control" wire:model.live="perPage">
-                                                    <option value="5">5</option>
-                                                    <option value="10">10</option>
-                                                    <option value="15">15</option>
-                                                    <option value="25">25</option>
-                                                </select>
-                                            </div>
-                                        </div>
+{{--                                <div class="col-sm-4 offset-2 text-right">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-sm-10"><label>Per Page</label></div>--}}
+{{--                                            <div class="col-sm-2">--}}
+{{--                                                <select class="form-control" wire:model.live="perPage">--}}
+{{--                                                    <option value="5">5</option>--}}
+{{--                                                    <option value="10">10</option>--}}
+{{--                                                    <option value="15">15</option>--}}
+{{--                                                    <option value="25">25</option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
                         </div>
@@ -63,44 +63,39 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
-                                    <th>Изображение</th>
-                                    <th>Заголовок</th>
-                                    <th>Порядок</th>
-                                    <th>Статус</th>
+                                    <th>Имя</th>
+                                    <th>Email</th>
+                                    <th>Доступ</th>
                                     <th>Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($news as $item)
+                                @foreach($users as $user)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $user->id }}</td>
                                         <td>
-                                            <img class="w-25 rounded" src="{{ asset('images/news') . '/' . $item->image }}" alt="{{ $item->title }}">
+                                            <a href="{{ route('admin.users.edit', ['id' => $user->id]) }}" wire:navigate>{{ $user->name }}</a>
                                         </td>
                                         <td class="w-25">
-                                            <a href="{{ route('admin.news.edit', ['id' => $item->id]) }}">
-                                                {{ $item->title }}
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <i class="fas fa-chevron-circle-left mr-2 mt-1 text-muted" role="button" wire:click="DecOrder({{$item->id}})"></i>
-                                            <span>{{ $item->order }}</span>
-                                            <i class="fas fa-chevron-circle-right ml-2 mt-1 text-muted" role="button" wire:click="IncOrder({{$item->id}})"></i>
+                                            {{ $user->email }}
                                         </td>
                                         <td class="w-25">
                                             <div class="row">
                                                 <div class="form-check ml-3">
-                                                    <input role="button" type="checkbox" class="form-check-input larger-checkbox" id="published" wire:model="published" wire:click="unPublish({{ $item->id }})" {{ $item->published == true? 'checked': '' }}>
+                                                    <input role="button" type="checkbox" class="form-check-input larger-checkbox"
+                                                           wire:model="utype" wire:click="ChangeType({{ $user->id }})"
+                                                           {{ $user->utype == 'ADM'? 'checked': '' }}
+                                                           @if($userId == $user->id) disabled @endif >
                                                 </div>
-                                                <span class="badge p-2 ml-1 {{ $item->published == true? 'bg-success': 'bg-danger' }}">{{ $item->published == true? 'Опубликовано': 'Не Опубликовано' }}</span>
+                                                <span class="badge p-2 ml-1 {{ $user->utype == 'ADM'? 'bg-success': 'bg-danger' }}">{{ $user->utype == 'ADM'? 'Открыт': 'Закрыт' }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="{{ route('admin.news.edit', ['id' => $item->id]) }}" type="button" class="btn btn-secondary btn-sm">
+                                                <button href="#" type="button" class="btn btn-secondary btn-sm" wire:click="editUser({{ $user->id }})">
                                                     <i class="fas fa-edit"></i>
-                                                </a>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews" wire:click="deleteId({{ $item->id }})">
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDeleteNews" wire:click="deleteId({{ $user->id }})" @if($userId == $user->id) disabled @endif>
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </div>
@@ -112,7 +107,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            {{ $news->links() }}
+                            {{ $users->links() }}
                         </div>
 
                     </div>
@@ -137,11 +132,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить эту новость?</p>
+                    <p>Вы действительно хотите удалить эту данные пользователя {{ $delName }}?</p>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                    <button  @click="$dispatch('delete-news')" type="button" class="btn btn-danger" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-danger" wire:click.prevent="destroy">Удалить</button>
                 </div>
             </div>
             <!-- /.modal-content -->

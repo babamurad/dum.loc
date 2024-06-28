@@ -6,7 +6,7 @@
                 class="h2-responsive mt-5 mb-3 h3 text-center about text-uppercase wow animated fadeInDown">О
                 компании</h2>
             <p class="text-center">
-                <strong>ХО Довребап улаг меркези (ХО ДУМ)</strong> — транспортно-логистическая компания, резидент -
+                <strong>ХО Довребап улаг меркези <span role="button" wire:click.prevent="toDashboard">(ХО ДУМ)</span> </strong> — транспортно-логистическая компания, резидент -
                 объявленный экспедитор Туркменистана.
             </p>
             <!--Row About-->
