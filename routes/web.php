@@ -22,31 +22,37 @@ Route::get('cart', \App\Livewire\KartockaComponent::class)->name('cart');
 
 
 
-//Route::middleware(['AdminMiddleware'])->group(function (){
-    Route::get('admin/dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
-    Route::get('admin/news', \App\Livewire\Admin\AdminNewsComponent::class)->name('admin.news');
-    Route::get('admin/create-news', \App\Livewire\Admin\CreateNewsComponent::class)->name('admin.news.create');
-    Route::get('admin/news/edit/{id}', \App\Livewire\Admin\EditNewsComponent::class)->name('admin.news.edit');
+Route::middleware(['auth'])->prefix('admin')->group(function (){
+    Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
+    Route::get('news', \App\Livewire\Admin\AdminNewsComponent::class)->name('admin.news');
+    Route::get('create-news', \App\Livewire\Admin\CreateNewsComponent::class)->name('admin.news.create');
+    Route::get('news/edit/{id}', \App\Livewire\Admin\EditNewsComponent::class)->name('admin.news.edit');
 
-    Route::get('admin/partners', App\Livewire\Admin\Partners\IndexComponent::class)->name('admin.partners.index');
-    Route::get('admin/partners/create', \App\Livewire\Admin\Partners\Create::class)->name('admin.partners.create');
-    Route::get('admin/partners/edit/{id}', \App\Livewire\Admin\Partners\Edit::class)->name('admin.partners.edit');
+    Route::get('partners', App\Livewire\Admin\Partners\IndexComponent::class)->name('admin.partners.index');
+    Route::get('partners/create', \App\Livewire\Admin\Partners\Create::class)->name('admin.partners.create');
+    Route::get('partners/edit/{id}', \App\Livewire\Admin\Partners\Edit::class)->name('admin.partners.edit');
 
-    Route::get('admin/questions', \App\Livewire\Admin\Questions\QuestionsIndexComponent::class)->name('admin.questions.index');
-    Route::get('admin/questions/create', \App\Livewire\Admin\Questions\QuestionsCreateComponent::class)->name('admin.questions.create');
-    Route::get('admin/questions/edit/{id}', \App\Livewire\Admin\Questions\QuestionsEditComponent::class)->name('admin.questions.edit');
+    Route::get('questions', \App\Livewire\Admin\Questions\QuestionsIndexComponent::class)->name('admin.questions.index');
+    Route::get('questions/create', \App\Livewire\Admin\Questions\QuestionsCreateComponent::class)->name('admin.questions.create');
+    Route::get('questions/edit/{id}', \App\Livewire\Admin\Questions\QuestionsEditComponent::class)->name('admin.questions.edit');
 
-    Route::get('admin/awards', App\Livewire\Admin\Awards\AwardsIndex::class)->name('admin.awards.index');
-    Route::get('admin/awards/create', App\Livewire\Admin\Awards\AwardsCreate::class)->name('admin.awards.create');
-    Route::get('admin/awards/edit/{id}', \App\Livewire\Admin\Awards\AwardsEdit::class)->name('admin.awards.edit');
+    Route::get('awards', App\Livewire\Admin\Awards\AwardsIndex::class)->name('admin.awards.index');
+    Route::get('awards/create', App\Livewire\Admin\Awards\AwardsCreate::class)->name('admin.awards.create');
+    Route::get('awards/edit/{id}', \App\Livewire\Admin\Awards\AwardsEdit::class)->name('admin.awards.edit');
 
-    Route::get('admin/contacts', \App\Livewire\Admin\ContactComponent::class)->name('admin.contacts');
-    Route::get('admin/info', \App\Livewire\Admin\AdminKartocka::class)->name('admin.info');
+    Route::get('contacts', \App\Livewire\Admin\ContactComponent::class)->name('admin.contacts');
+    Route::get('info', \App\Livewire\Admin\AdminKartocka::class)->name('admin.info');
 
-    Route::get('admin/users', \App\Livewire\Admin\Users\UserIndexComponent::class)->name('admin.users.index');
-    Route::get('admin/users/create', \App\Livewire\Admin\Users\UserCreateComponent::class)->name('admin.users.create');
-    Route::get('admin/users/edit/{id}', \App\Livewire\Admin\Users\UserEditComponent::class)->name('admin.users.edit');
-//});
+    Route::get('users', \App\Livewire\Admin\Users\UserIndexComponent::class)->name('admin.users.index');
+    Route::get('users/create', \App\Livewire\Admin\Users\UserCreateComponent::class)->name('admin.users.create');
+    Route::get('users/edit/{id}', \App\Livewire\Admin\Users\UserEditComponent::class)->name('admin.users.edit');
+
+    Route::get('files', \App\Livewire\Admin\Files\FilesComponent::class)->name('admin.files');
+    Route::get('files/create', \App\Livewire\Admin\Files\FilesCreateComponent::class)->name('admin.files.create');
+    Route::get('files/edit/{id}', \App\Livewire\Admin\Files\FilesEditComponent::class)->name('admin.files.edit');
+
+    Route::get('contract', \App\Livewire\Admin\ContractComponent::class)->name('admin.contract');
+});
 
 
 //Route::view('dashboard', 'dashboard')

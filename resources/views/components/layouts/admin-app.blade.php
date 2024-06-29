@@ -172,6 +172,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                 </li>
+                <li class="nav-item">
+                        <a href="{{ route('admin.files') }}" class="nav-link {{ Request::is('admin/files') ? 'active' : '' }}" wire:navigate>
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Файлы
+                            </p>
+                        </a>
+                </li>
+                <li class="nav-item">
+                        <a href="{{ route('admin.contract') }}" class="nav-link {{ Request::is('admin/contract') ? 'active' : '' }}" wire:navigate>
+                            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                            <p>
+                                Договор
+                            </p>
+                        </a>
+                </li>
 
 {{--                <li class="nav-item">--}}
 {{--                    <a href="{{ route('admin.info') }}" class="nav-link {{ Request::is('admin/info') ? 'active' : '' }}" wire:navigate>--}}
