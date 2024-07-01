@@ -28,7 +28,7 @@ class FilesComponent extends Component
 
     public function render()
     {
-        $files = File::paginate(10);
+        $files = File::orderBy('order')->paginate(10);
         return view('livewire.admin.files.files-component', compact('files'))
             ->layout('components.layouts.admin-app');
     }

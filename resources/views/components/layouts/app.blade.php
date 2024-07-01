@@ -18,12 +18,12 @@
 
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"
+{{--    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"--}}
           rel="stylesheet">
     <!--/Google Fonts-->
     <!-- Font Awesome -->
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+{{--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">--}}
 
     <!-- Bootstrap core CSS -->
 

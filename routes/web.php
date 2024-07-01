@@ -51,7 +51,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
     Route::get('files/create', \App\Livewire\Admin\Files\FilesCreateComponent::class)->name('admin.files.create');
     Route::get('files/edit/{id}', \App\Livewire\Admin\Files\FilesEditComponent::class)->name('admin.files.edit');
 
-    Route::get('contract', \App\Livewire\Admin\ContractComponent::class)->name('admin.contract');
+    Route::get('contract', \App\Livewire\Admin\Contract\ContractComponent::class)->name('admin.contract');
+    Route::get('contract/create', \App\Livewire\Admin\Contract\CreateContract::class)->name('admin.contract.create');
+    Route::get('contract/edit/{id}', \App\Livewire\Admin\Contract\EditContract::class)->name('admin.contract.edit');
+
 });
 
 

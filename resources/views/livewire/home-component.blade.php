@@ -491,32 +491,14 @@
                      data-wow-delay="0.2s">
 
                     <ul style="line-height: 2.8rem;">
+                        @foreach($files as $file)
                         <li>
-                            <a class="ourfl" href="img/1)Презентация 2021.pdf" target="_blank">Презентация</a>
+                            <a class="ourfl" href="{{ asset('images/files/' . $file->file) }}" target="_blank">{{ $file->title }}</a>
                         </li>
-                        <li>
-                            <a class="ourfl" href="img/2)Условия 2021 на 2 кв ТРК УТИ ТДЖ КРГ.pdf" target="_blank">Условия
-                                на 2 квартал 2021 г.</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/3)Ставки пор 2 кв 2021г.jpg" target="_blank">Ставки на порожний
-                                возврат вагонов 2 квартал 2021 г.</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/4)Порядок организации возврата порожнего вагона.pdf"
-                               target="_blank">Порядок оформления порожних вагонов</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/map.webp" target="_blank">Карта железной дороги Туркменистана</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/5) Погранпереходы Туркменистан-СНГ.pdf" target="_blank">Погранстыки
-                                Туркменистан-СНГ и др</a>
-                        </li>
+                        @endforeach
                     </ul>
 
                 </div>
-
 
             </div>
             <hr>
@@ -526,24 +508,11 @@
                 <div class="col-md-6 white-text justify-content-lg-center align-content-center wow animated fadeInLeft"
                      data-wow-delay="0.2s">
                     <ul style="line-height: 2.8rem;">
+                        @foreach($contracts as $contract)
                         <li>
-                            <a class="ourfl" href="img/Sertificate.jpg" target="_blank">Регистрационный сертификат ХО
-                                ДУМ</a>
+                            <a class="ourfl" href="{{ asset('images/files/' . $contract->file) }}" target="_blank">{{ $contract->title }}</a>
                         </li>
-                        <li>
-                            <a class="ourfl" href="img/ЕГРПО продл 2021_compressed.pdf" target="_blank">ЕГРПО</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/Tax_code.jpg" target="_blank">Свидетельство о постановке на
-                                налоговый учет</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/Запрос доков на закл дог-ра Юр лиц (1).pdf">Запрос пакета
-                                документов заказчика</a>
-                        </li>
-                        <li>
-                            <a class="ourfl" href="img/Дог образец рус 2021.docx">Шаблон договора</a>
-                        </li>
+                        @endforeach
                     </ul>
                     <div class="row text-center" style="line-height: 4rem;">
                         <div class="col-sm-12 align-content-center white-text pr-3 mt-5">

@@ -9,4 +9,9 @@ class Contact extends Model
 {
     use HasFactory;
     protected $fillable = ['address', 'email', 'phone', 'fax', 'image'];
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
 }

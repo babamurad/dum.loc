@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -9,7 +10,9 @@ class HomeComponent extends Component
 {
     public function render()
     {
-        return view('livewire.home-component');
+        $files = File::published()->orderBy('order')->get();
+        $contracts = File::published()->contract()->orderBy('order')->get();
+        return view('livewire.home-component', compact('files', 'contracts'));
     }
 
     public function toDashboard()
