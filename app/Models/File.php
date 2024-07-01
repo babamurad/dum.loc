@@ -19,4 +19,9 @@ class File extends Model
     {
         return $query->where('contract', true);
     }
+
+    public function scopeFiles($query)
+    {
+        return $query->where('contract', false);
+    }
 }

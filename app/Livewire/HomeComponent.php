@@ -10,7 +10,7 @@ class HomeComponent extends Component
 {
     public function render()
     {
-        $files = File::published()->orderBy('order')->get();
+        $files = File::published()->files()->orderBy('order')->get();
         $contracts = File::published()->contract()->orderBy('order')->get();
         return view('livewire.home-component', compact('files', 'contracts'));
     }

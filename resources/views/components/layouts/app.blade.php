@@ -327,7 +327,7 @@
                 success: function () {
                     $(".fields").hide();
                     //alert('Успешно');
-                    result = '<h2>Ваша заявка принята.</h2><p>Мы ответим вам в ближайшее время.</p>';
+                    result = '<h2 class="text-white">Ваша заявка принята.</h2><p class="text-white">Мы ответим вам в ближайшее время.</p>';
                     $('.notes').html(result);
                 },
                 error: function () {

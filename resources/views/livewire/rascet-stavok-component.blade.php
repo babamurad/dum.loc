@@ -98,6 +98,7 @@
 
                         <button id="zayawka" type="submit" class="btn btn-danger btn-rounded">Отправить</button>
                     </form>
+                    <div class="notes mt-5 pt-5"></div>
                 </div>
 
                 <div class="col-sm-4 d-flex align-items-center">
