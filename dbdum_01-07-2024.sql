@@ -23,7 +23,7 @@ SET NAMES 'utf8';
 --
 -- Set default database
 --
-USE dbdum;
+USE r44090_dumdb;
 
 --
 -- Drop table `awards`
@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS users;
 --
 -- Set default database
 --
-USE dbdum;
+USE r44090_dumdb;
 
 --
 -- Create table `users`
