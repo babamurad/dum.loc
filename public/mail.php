@@ -2,13 +2,13 @@
 //if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['email'])&&$_POST['email']!=""))
 
 {
-        //$to = 'babamurad0305@gmail.com'; mail@dum-tm.com babamurad2010@yandex.com
-        $to = 'mail@dum-tm.com, ofis@dum-tm.com, babamurad0305@gmail.com';
+        $to = 'ofidum@mail.ru'; //mail@dum-tm.com babamurad2010@yandex.com
+//        $to = ', ofis@dum-tm.com, babamurad0305@gmail.com';
         $subject = 'Заявка на расчет ставок с вашего сайта';
         $name_of_comp = $_POST['name_of_comp'];
         $email = $_POST['email'];
         $railcar_owner = $_POST['railcar_owner'];
-        $depart_station = $_POST['depart_station'];        
+        $depart_station = $_POST['depart_station'];
         $name = $_POST['name'];
         $railcar_type = $_POST['railcar_type'];
         $destin_station = $_POST['destin_station'];
@@ -32,11 +32,11 @@
                     <p>Территория экспедирования: '.$ter_exp.'</p>
                     <p>Наименование груза: '.$cargo_name.'</p>
                     <p>Код груза: '.$cargo_code.'</p>
-                    <p>Вес: '.$cargo_weight.'</p>                    
+                    <p>Вес: '.$cargo_weight.'</p>
                 </body>
             </html>';
         $headers  = "Content-type: text/html; charset=utf-8 \r\n";
-        $headers .= "From: babamurad0305@gmail.com\r\n";
+        $headers .= "From: ofidum@mail.ru\r\n";
         mail($to, $subject, $message, $headers);
     }
 ?>
