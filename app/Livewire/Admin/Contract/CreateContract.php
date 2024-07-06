@@ -34,7 +34,8 @@ class CreateContract extends Component
         $file->published = $this->published;
         $file->order = $this->order;
 
-        $fileName = Carbon::now()->timestamp.'.'.$this->file->extension();
+//        $fileName = Carbon::now()->timestamp.'.'.$this->file->extension();
+        $fileName = $this->file->getClientOriginalName();
         $this->file->storeAs('/files', $fileName);
         $file->file = $fileName;
         $file->filename = $this->file->getClientOriginalName();
