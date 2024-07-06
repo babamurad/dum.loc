@@ -49,7 +49,8 @@ class FilesEditComponent extends Component
             if (file_exists('files/'.$this->file)){
                 unlink('files/'.$this->file);
             }
-            $imageName = Carbon::now()->timestamp.'.'.$this->newFile->extension();
+//            $imageName = Carbon::now()->timestamp.'.'.$this->newFile->extension();
+            $imageName = $this->newFile->getClientOriginalName();
             $this->newFile->storeAs('files/', $imageName);
             $file->file = $imageName;
             $file->filename = $this->newFile->getClientOriginalName();

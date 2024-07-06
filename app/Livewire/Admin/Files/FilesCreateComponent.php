@@ -34,14 +34,26 @@ class FilesCreateComponent extends Component
         $file->published = $this->published;
         $file->order = $this->order;
 
-        $fileName = Carbon::now()->timestamp.'.'.$this->file->extension();
-        $this->file->storeAs('/files', $fileName);
-        $file->file = $fileName;
-        $file->filename = $this->file->getClientOriginalName();
+        // Получаем оригинальное название файла
+        $originalFilename = $this->file->getClientOriginalName();
+
+        // Генерируем уникальный хэш для предотвращения конфликтов
+        $hash = md5(uniqid(time(), true));
+
+        // Формируем новое имя файла с оригинальным названием и хэшем
+        //$fileName = $hash . '.' . pathinfo($originalFilename, PATHINFO_EXTENSION);
+
+        // Сохраняем файл с новым именем
+//        $this->file->storeAs('/files', $fileName);
+        $this->file->storeAs('/files', $originalFilename);
+
+        $file->file = $originalFilename;
+        $file->filename = $originalFilename; // Сохраняем оригинальное название
 
         $file->save();
         session()->flash('success', 'Успешно добавлен!');
         $this->redirectRoute('admin.files', navigate: true);
-//        redirect()->route('admin.files');
+//  redirect()->route('admin.files');
     }
+
 }

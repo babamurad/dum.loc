@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <h2 class="card-title">{{ $newsItem->title }}</h2>
                         <p class="card-text">{!! $newsItem->text !!}</p>
-                        <a wire:navigate href="{{ route('home') }}" class="btn btn-primary">Back to Home</a>
+                        <a wire:navigate href="{{ route('home') }}" class="btn btn-primary">На главную</a>
                     </div>
                 </div>
             </div>

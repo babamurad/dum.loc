@@ -26,7 +26,7 @@
                                     <h4 class="card-title">{{ $newsItem->title }}</h4>
                                     @php  @endphp
                                     <p class="card-text">{!! \Illuminate\Support\Str::words($newsItem->text, 12, '...') !!}</p>
-                                    <a href="{{ route('single.news', ['id' => $newsItem->id]) }}" class="btn btn-primary" wire:navigate>Read more</a>
+                                    <a href="{{ route('single.news', ['id' => $newsItem->id]) }}" class="btn btn-primary" wire:navigate>ЧИтать далее</a>
                                 </div>
                             </div>
                         </div>
