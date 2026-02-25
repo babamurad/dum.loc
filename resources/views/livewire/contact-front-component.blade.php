@@ -18,7 +18,13 @@
 
         <div class="col-md-9 mb-md-0 mb-5 wow animated fadeInLeft">
 
-            <form id="contact-form" action="" method="POST">
+            <form wire:submit="save">
+
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
 
                 <!--Grid row-->
 
@@ -30,15 +36,15 @@
 
                         <div class="md-form mb-0">
 
-                            <input type="text" id="name" name="name" class="form-control" value="" required>
+                            <input type="text" id="name" wire:model="name" class="form-control @error('name') is-invalid @enderror">
 
-                            <div class="invalid-feedback">
+                            @error('name')
+                                <div class="invalid-feedback" style="display: block;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
-                                Please choose a username.
-
-                            </div>
-
-                            <label for="validationCustom012">Ваше имя</label>
+                            <label for="name">Ваше имя</label>
 
                         </div>
 
@@ -53,7 +59,13 @@
 
                         <div class="md-form mb-0">
 
-                            <input type="text" id="email" name="email" class="form-control" required>
+                            <input type="text" id="email" wire:model="email" class="form-control @error('email') is-invalid @enderror">
+
+                            @error('email')
+                                <div class="invalid-feedback" style="display: block;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
                             <label for="email" class="">Ваш email</label>
 
@@ -76,7 +88,13 @@
 
                         <div class="md-form mb-0">
 
-                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <input type="text" id="subject" wire:model="subject" class="form-control @error('subject') is-invalid @enderror">
+
+                            @error('subject')
+                                <div class="invalid-feedback" style="display: block;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
                             <label for="subject" class="">Тема</label>
 
@@ -100,8 +118,14 @@
 
                         <div class="md-form">
 
-                                <textarea type="text" id="message" name="message" rows="2"
-                                          class="form-control md-textarea" required></textarea>
+                                <textarea type="text" id="message" wire:model="message" rows="2"
+                                          class="form-control md-textarea @error('message') is-invalid @enderror"></textarea>
+
+                            @error('message')
+                                <div class="invalid-feedback" style="display: block;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
                             <label for="message">Ваше сообщение</label>
 
@@ -114,7 +138,9 @@
                 <!--Grid row-->
 
                 <div class="text-center text-md-left">
-                    <button class="btn btn-rounded btn-orange-2 white-text btn-send" type="submit">Отправить
+                    <button class="btn btn-rounded btn-orange-2 white-text btn-send" type="submit">
+                        <span wire:loading.remove>Отправить</span>
+                        <span wire:loading>Отправка...</span>
                     </button>
                 </div>
 
@@ -136,7 +162,7 @@
 
                 <li>
 
-                    <p>{{ $contacts->address }}</p>
+                    <p>{{ optional($contacts)->address }}</p>
 
                 </li>
 
@@ -146,9 +172,9 @@
 
                 <li>
 
-                    <p><a href="tel: +99312468772">{{ $contacts->phone }}</a></p>
+                    <p><a href="tel: +99312468772">{{ optional($contacts)->phone }}</a></p>
                     <p>Телефон руководства:</p>
-                    <p><a href="tel: +99312468739"> {{ $contacts->fax }}</a></p>
+                    <p><a href="tel: +99312468739"> {{ optional($contacts)->fax }}</a></p>
                 </li>
 
                 <li class="firm-icon"><i class="fas fa-envelope fa-2x icon-color"></i>
@@ -157,7 +183,7 @@
 
                 <li>
 
-                    <p>{{ $contacts->email }}</p>
+                    <p>{{ optional($contacts)->email }}</p>
 
                 </li>
 

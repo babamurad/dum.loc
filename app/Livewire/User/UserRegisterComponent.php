@@ -4,46 +4,50 @@ namespace App\Livewire\User;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Layout('components.layouts.app-second')]
+#[Title('Вход / Регистрация')]
 class UserRegisterComponent extends Component
 {
-    public $loginform = false;
-    public $email;
-    public $password;
-    public $password_confirmation;
-    public $name;
+    public bool $loginform = true;
 
+    #[Rule('required|email')]
+    public $email = '';
 
-    public function regLog()
+    #[Rule('required')]
+    public $password = '';
+
+    #[Rule('required_if:loginform,false|string|max:255')]
+    public $name = '';
+
+    #[Rule('required_if:loginform,false|same:password')]
+    public $password_confirmation = '';
+
+    public function toggleForm()
     {
-        $this->resetValidation();
         $this->loginform = ! $this->loginform;
-    }
-
-    public function render()
-    {
-        return view('livewire.user.user-register-component')
-            ->layout('components.layouts.app-second');
+        $this->resetValidation();
+        $this->reset(['name', 'email', 'password', 'password_confirmation']);
     }
 
     public function login()
     {
-        $credentials = $this->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $this->validateOnly('email');
+        $this->validateOnly('password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             session()->flash('message', 'Login successful');
-            if (Auth::user()->utype == 'ADM') {
+            if (Auth::user()->utype === 'ADM') {
                 return redirect()->route('admin.dashboard');
             }
             return redirect()->route('home');
-        } else {
-            session()->flash('error', 'Invalid credentials');
         }
 
+        session()->flash('error', 'Invalid credentials');
     }
 
     public function register()
@@ -63,13 +67,18 @@ class UserRegisterComponent extends Component
         Auth::login($user);
 
         session()->flash('message', 'Registration successful');
-        return redirect()->intended('/');
+        return redirect()->route('home');
     }
 
     public function logout()
     {
         Auth::logout();
         session()->flash('error', 'Logout');
+        return redirect()->route('login');
     }
 
+    public function render()
+    {
+        return view('livewire.user.user-register-component');
+    }
 }

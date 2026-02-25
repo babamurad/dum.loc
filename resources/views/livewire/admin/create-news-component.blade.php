@@ -6,25 +6,15 @@
     <!-- Summernote -->
     <script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
-        $(function initializeSummernote() {
-            // Summernote
+        document.addEventListener('livewire:initialized', function () {
             $('#summernote').summernote({
                 height: 300,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                    @this.set('text', contents);
+                        @this.set('text', contents);
                     }
                 }
-            })
-
-            // CodeMirror
-            // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            //     mode: "htmlmixed",
-            //     theme: "monokai"
-            // });
-        })
-        document.addEventListener('livewire:load', function () {
-            initializeSummernote();
+            });
         });
     </script>
 @endpush

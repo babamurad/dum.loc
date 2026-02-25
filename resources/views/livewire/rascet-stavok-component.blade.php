@@ -5,14 +5,21 @@
                 ставок </h2>
             <div class="row">
                 <div class="col-sm-8">
-                    <form class="fields" action="" id="Rasform" method="POST">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+
+                    <form class="fields" wire:submit="save" id="Rasform">
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset class="form-group">
                                     <div class="col-ms-12">
                                         <label class="text-white" for="name_of_comp">Наименование компании</label>
-                                        <input type="text" class="rscet form-control" id="name_of_comp" name="name_of_comp"
-                                               placeholder="ООО Победа" required>
+                                        <input type="text" class="rscet form-control @error('company_name') is-invalid @enderror" id="name_of_comp" wire:model="company_name"
+                                               placeholder="ООО Победа">
+                                        @error('company_name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                 </fieldset>
                             </div>
@@ -21,43 +28,48 @@
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label class="text-white" for="email">Ваш email</label>
-                                    <input type="email" class="rscet form-control" id="email" name="email"
+                                    <input type="email" class="rscet form-control @error('email') is-invalid @enderror" id="email" wire:model="email"
                                            placeholder="email@example.com">
+                                    @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label class="text-white" for="railcar_owner">Принадлежность вагона</label>
-                                    <select type="text" class="rscet form-control" id="railcar_owner" name="railcar_owner">
+                                    <select type="text" class="rscet form-control @error('railcar_owner') is-invalid @enderror" id="railcar_owner" wire:model="railcar_owner">
                                         <option value="" selected disabled>Выберите принадлежность вагона</option>
-                                        <option value="0">СПС</option>
-                                        <option value="0">МПС</option>
+                                        <option value="СПС">СПС</option>
+                                        <option value="МПС">МПС</option>
                                     </select>
+                                    @error('railcar_owner') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label class="text-white" for="depart_station">Станция отправления</label>
-                                    <input type="text" class="rscet form-control" id="depart_station" name="depart_station"
+                                    <input type="text" class="rscet form-control @error('departure_station') is-invalid @enderror" id="depart_station" wire:model="departure_station"
                                            placeholder="Костанай станция">
+                                    @error('departure_station') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                             </div>
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label class="text-white" for="first_name">Ваше имя</label>
-                                    <input type="text" class="rscet form-control" id="first_name" placeholder="Иванов Иван">
+                                    <input type="text" class="rscet form-control @error('contact_person') is-invalid @enderror" id="first_name" wire:model="contact_person" placeholder="Иванов Иван">
+                                    @error('contact_person') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label class="text-white" for="railcar_type">Тип вагона</label>
-                                    <select type="text" class="rscet form-control" id="railcar_type" name="railcar_type">
+                                    <select type="text" class="rscet form-control @error('railcar_type') is-invalid @enderror" id="railcar_type" wire:model="railcar_type">
                                         <option value="" selected disabled>Выберите из списка</option>
-                                        <option value="0">Крытый</option>
-                                        <option value="1">Полувагон</option>
-                                        <option value="2">Цистерны</option>
-                                        <option value="3">Контейнер</option>
+                                        <option value="Крытый">Крытый</option>
+                                        <option value="Полувагон">Полувагон</option>
+                                        <option value="Цистерны">Цистерны</option>
+                                        <option value="Контейнер">Контейнер</option>
                                     </select>
-                                    <!-- цистерны <input type="text" class="form-control" id="railcar_type" name="railcar_type">-->
+                                    @error('railcar_type') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label class="text-white" for="destin_station">Станция назначения</label>
-                                    <input type="text" class="rscet form-control" id="destin_station" name="destin_station"
+                                    <input type="text" class="rscet form-control @error('destination_station') is-invalid @enderror" id="destin_station" wire:model="destination_station"
                                            placeholder="Серхетабат эксп">
+                                    @error('destination_station') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                             </div>
                         </div>
@@ -65,8 +77,9 @@
                             <div class="col">
                                 <fieldset class="form-group">
                                     <label class="text-white" for="ter_exp">Территория экспедирования</label>
-                                    <input type="text" class="rscet form-control" id="ter_exp" name="ter_exp"
+                                    <input type="text" class="rscet form-control @error('forwarding_territory') is-invalid @enderror" id="ter_exp" wire:model="forwarding_territory"
                                            placeholder="Казахстан, Туркменистан">
+                                    @error('forwarding_territory') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                             </div>
                         </div>
@@ -74,8 +87,9 @@
                             <div class="col">
                                 <fieldset class="form-group">
                                     <label class="text-white" for="cargo_name">Наименование груза</label>
-                                    <input type="text" class="rscet form-control" id="cargo_name" name="cargo_name"
+                                    <input type="text" class="rscet form-control @error('cargo_name') is-invalid @enderror" id="cargo_name" wire:model="cargo_name"
                                            placeholder="Пшеница">
+                                    @error('cargo_name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                             </div>
                         </div>
@@ -83,20 +97,25 @@
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label class="text-white" for="cargo_code">Код груза</label>
-                                    <input type="text" class="rscet form-control" id="cargo_code" name="cargo_code"
+                                    <input type="text" class="rscet form-control @error('cargo_code') is-invalid @enderror" id="cargo_code" wire:model="cargo_code"
                                            placeholder="ГНГ10019000 / ЕТСНГ011005">
+                                    @error('cargo_code') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                             </div>
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label class="text-white" for="cargo">Вес (тн)</label>
-                                    <input type="text" class="rscet form-control" id="cargo_weight" name="cargo_weight"
+                                    <input type="text" class="rscet form-control @error('cargo_weight') is-invalid @enderror" id="cargo_weight" wire:model="cargo_weight"
                                            placeholder="70 тн">
+                                    @error('cargo_weight') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </fieldset>
                             </div>
                         </div>
 
-                        <button id="zayawka" type="submit" class="btn btn-danger btn-rounded">Отправить</button>
+                        <button id="zayawka" type="submit" class="btn btn-danger btn-rounded">
+                            <span wire:loading.remove>Отправить</span>
+                            <span wire:loading>Отправка...</span>
+                        </button>
                     </form>
                     <div class="notes mt-5 pt-5"></div>
                 </div>
